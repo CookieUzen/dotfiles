@@ -1,3 +1,7 @@
 #!/bin/bash
+cp -n zshrc "$HOME"/ && echo "zshrc install"
 
-cp zshrc "$HOME"/
+if [ "$SHELL" -eq /usr/bin/zsh ]
+then
+    source "$HOME"/.zshrc
+fi

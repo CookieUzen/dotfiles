@@ -119,9 +119,9 @@ alias zhumu="wine /home/uzen/.wine/drive_c/users/uzen/Application\ Data/Zhumu\ C
 alias upower="upower -i /org/freedesktop/UPower/devices/battery_BAT0"
 alias ism="python ~/bin/ism.py"
 alias dict="dict -d gcide "
+alias ffrec="ffmpeg -f x11grab  -s 1366x768 -i :0.0 -r 25 -vcodec libx264 "
 
 source ~/.export.sh
-cowsay -f stegosaurus I AM A STEGOSAURUS
 bindkey -v
 export KEYTIMEOUT=1
 

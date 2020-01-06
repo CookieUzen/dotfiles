@@ -8,7 +8,7 @@ export ZSH="/home/uzen/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="bureau"
+ZSH_THEME="bira"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -117,9 +117,14 @@ alias plugin="nvim ~/.config/nvim/plugin.vim"
 alias wechat="wine \"/home/uzen/.wine/drive_c/Program Files (x86)/Tencent/WeChat/WeChat.exe\""
 alias zhumu="wine /home/uzen/.wine/drive_c/users/uzen/Application\ Data/Zhumu\ Cloud\ Meetings/bin/zhumu.exe"
 alias upower="upower -i /org/freedesktop/UPower/devices/battery_BAT0"
-alias ism="python ~/bin/ism.py"
-alias dict="dict -d gcide "
-alias ffrec="ffmpeg -f x11grab  -s 1366x768 -i :0.0 -r 25 -vcodec libx264 "
+alias dictg="dict -d gcide "
+alias ffrec="ffmpeg -f x11grab -s 1280x800 -i :0.0 -r 25 -vcodec libx264 "
+alias t="todo.sh"
+alias wal="wal --backend colorz -i "
+alias pomodoro="bash .polybar/pomodoro.sh"
+alias website="bash ~/website.sh"
+alias nt="nvim *.tex *.bib"
+alias surf="bash ~/.surf/surf-open.sh"
 
 source ~/.export.sh
 bindkey -v

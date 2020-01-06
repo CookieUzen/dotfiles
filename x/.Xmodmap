@@ -1,0 +1,15 @@
+!
+! Swap Caps_Lock and Control_L
+!
+keycode 66 = Control_L Control_L
+keycode 105 = Control_R Control_R
+keycode 37 = Caps_Lock
+
+clear Control
+clear Lock
+
+add Control = Caps_Lock Control_L
+
+! Shift in case enter fails
+! keycode 62= Return
+! keycode 62= Shift_R

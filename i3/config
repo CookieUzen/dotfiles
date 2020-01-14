@@ -172,7 +172,7 @@ bindsym KP_Left exec playerctl previous
 # Print Screen
 bindsym $mod+plus exec scrot -e 'mv $f /home/uzen/Screenshot/' 
 
-exec_always --no-startup-id bash /home/uzen/.startup.sh
+exec_always --no-startup-id bash /home/uzen/scripts/startup.sh
 
 gaps inner 10
 gaps outer 10
@@ -200,8 +200,9 @@ client.background       #ffffff
 
 workspace_auto_back_and_forth yes
 
-bindsym $mod+0 exec --no-startup-id . /home/uzen/.i3lock/i3lockPic.sh
+bindsym $mod+0 exec --no-startup-id i3lock -e -u -p win -i /home/uzen/wallpaper/windows-10.png
 
+# "`cat .fehbg | tail -n 1 | cut -d \' -f 2`"
 
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+minus move scratchpad
@@ -221,6 +222,6 @@ bindsym F5 exec /home/uzen/.surf/surf-open.sh
 
 bindsym $mod+Ctrl+greater move workspace to output right
 bindsym $mod+Ctrl+less move workspace to output left
-
-exec ~/.screenlayout/display\ at\ home.sh
 bindsym $mod+Shift+v exec ~/.vim-anywhere/bin/run
+
+# for_window [instance="vimanywhere"] floating enable

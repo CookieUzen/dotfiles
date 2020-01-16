@@ -109,7 +109,7 @@ alias upower="upower -i /org/freedesktop/UPower/devices/battery_BAT0"
 alias dictg="dict -d gcide "
 alias wal="wal --backend colorz -i "
 alias pomodoro="bash .polybar/pomodoro.sh"
-alias nt="nvim *.tex *.bib"
+alias nt="nvim *.tex"
 alias surf="bash ~/.surf/surf-open.sh"
 alias calc="= --dmenu=dmenu -location 2 -wdith 100"
 

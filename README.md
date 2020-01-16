@@ -15,7 +15,7 @@ cd dotfiles
 The author likes to keep his dotfiles in a git repository for easy access. Thus all files are symlinked over. If you do not wish to copy the dotfiles instead of symlinking them, run `install.cp.sh`.
 
 ## Important Note
-This dotfiles site is part of a bigger project. Sometimes some configurations (like the neovim configuration) will not work unless properly setted up. The other project explains the process of further set up, you can check it out [here](https://github.com/Uzens-Manjaro-Setup):
+This dotfiles site is part of a bigger project. Sometimes some configurations (like the neovim configuration) will not work unless properly setted up. The other project explains the process of further set up, you can check it out [here](https://github.com/CookieUzen/Uzens-Manjaro-Setup):
 
 
 # Disclaimer

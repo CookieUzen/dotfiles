@@ -34,6 +34,9 @@ set nohlsearch
 set showmatch
 set ignorecase
 
+" Conceal level
+set conceallevel=2
+
 " Latex
 map <F2> :! zathura "$(echo "%" \| cut -f 1 -d '.').pdf" & <CR><CR>
 
@@ -68,20 +71,20 @@ set nu
 " map H b
 " map L w
 
+" Enable Mouse
 set mouse=a
 
-let g:AutoPairsShortcutToggle = '<M-q>'
-
+" Macros
 map <F9> :! echo `detex "%" \| wc -w ` words <CR>
 map <F10> : silent exec '! termite -d "`pwd`" &' <CR>
 
-inoremap <C-f> <Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>
-nnoremap <C-f> : silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>
-
+" termguicolors
 set notermguicolors
 
+" foldmethod
 set foldmethod=syntax
 
+" auto compiling
 map <F6> :call CompileRunGcc()<CR>
 func! CompileRunGcc()
 exec "w"

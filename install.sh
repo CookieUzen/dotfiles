@@ -13,9 +13,9 @@ cd "$HOME/.surf/"
 ln -s "$dotfiles/surf/*" .
 
 # Setting up zsh
-echo Assuming OhMyZsh is installed
-cd ~
-ln -s "$dotfiles/zsh/zshrc" .zshrc
+# echo Assuming OhMyZsh is installed
+# cd ~
+# ln -s "$dotfiles/zsh/zshrc" .zshrc
 
 # Setting up scripts folder
 cd ~

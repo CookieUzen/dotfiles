@@ -13,9 +13,9 @@ cd "$HOME/.surf/"
 cp "$dotfiles/surf/*" .
 
 # Setting up zsh
-echo Assuming OhMyZsh is installed
-cd ~
-cp "$dotfiles/zsh/zshrc" .zshrc
+# echo Assuming OhMyZsh is installed
+# cd ~
+# cp "$dotfiles/zsh/zshrc" .zshrc
 
 # Setting up scripts folder
 cd ~

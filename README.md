@@ -1,16 +1,19 @@
 # Dotfiles
 Welcome to the home of Uzen's dotfiles.
 
-## Installation
-The folder is downloaded in the home directory. In that is undesired, changed the `$dotfiles` variable in the install script.
+## Partial Installtion
+Since all dotfiles are personal, the author **highly suggest** to manually install the dotfiles and modify the dotfiles to your personal preference. 
 
-**To begin the install:**
+## Installation
+**To install all dotfiles, run**
 ```bash
 cd ~
 git clone https://github.com/CookieUzen/dotfiles.git
 cd dotfiles
 ./install.sh
 ```
+*note* the install script assumes the folder is cloned in the home directory. In that is undesired, changed the `$dotfiles` variable in the install script.
+
 ## Symlink V.S. Copy
 The author likes to keep his dotfiles in a git repository for easy access. Thus all files are symlinked over. If you do not wish to copy the dotfiles instead of symlinking them, run `install.cp.sh`.
 

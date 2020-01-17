@@ -20,6 +20,16 @@ The author likes to keep his dotfiles in a git repository for easy access. Thus 
 ## Important Note
 This dotfiles site is part of a bigger project. Sometimes some configurations (like the neovim configuration) will not work unless properly setted up. The other project explains the process of further set up, you can check it out [here](https://github.com/CookieUzen/Uzens-Manjaro-Setup):
 
+## OHMYZSH
+Ohmyzsh is required in order to work with the zshrc file. To install ohmyzsh,
+```bash
+# with curl
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# or with wget
+sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+```
+
+Install the ohmyzsh first before using the this zshrc file.
 
 # Disclaimer
 All files in this git repository is design for the author's use. **Modify the files to suit your needs**.

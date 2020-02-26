@@ -1,16 +1,29 @@
 #!/bin/bash
-killall -URS1 termite
+cd ~/scripts
+
+case $DESKTOP_SESSION in
+	bspwm)
+	# cd golden
+	# ./run.sh &
+	# cd ..
+	# cd bspi
+	# ./bspi_listen &
+		;;
+
+	i3)
+		;;
+esac
+
 killall polybar
+killall compton 
 
-. .fehbg
+polybar "$DESKTOP_SESSION"bar &
 
-# polybar top &
-# polybar bottom &
-polybar i3bar &
+. ~/.fehbg 
 
 wal -R
 
-xmodmap /home/uzen/.Xmodmap
+xmodmap ~/.Xmodmap
 
-killall compton 
+light-locker &
 compton --config /home/uzen/.config/compton/compton.conf

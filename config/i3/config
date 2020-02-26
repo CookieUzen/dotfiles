@@ -19,7 +19,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec termite
+bindsym $mod+Return exec st
 bindsym $mod+Shift+Return exec termite toggle floating
 
 # kill focused window
@@ -158,17 +158,14 @@ bindsym KP_Right exec playerctl next
 bindsym KP_Left exec playerctl previous
 
 # Startup
-exec_always --no-startup-id bash /home/uzen/scripts/startup.sh
+exec_always --no-startup-id bash "$HOME"/scripts/startup.sh
 
 # Gaps
 gaps inner 10
-gaps outer 10
-# gaps top 30
-# gaps bottom 30
+gaps outer 30
 
 # Border
 set $thick 0
-border_radius 10
 
 for_window [class="^.*"] border pixel $thick
 for_window [title="^.*"] border pixel $thick
@@ -185,17 +182,14 @@ client.background       #ffffff
 # Additional Settings
 workspace_auto_back_and_forth yes
 
-# i3lock
-bindsym $mod+0 exec --no-startup-id i3lock -e -u -p win -i /home/uzen/wallpaper/windows-10.png
-
-# Vim anywhere
-bindsym $mod+Shift+v exec ~/.vim-anywhere/bin/run
+# lightlocker
+bindsym $mod+0 exec --no-startup-id light-locker-command -l
 
 # Scratchpad
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
 # Personal Settings
-for_window [class="netease-cloud-music"] move to workspace 20
 for_window [class="Inkscape"] fullscreen enable
 bindsym F5 exec /home/uzen/.surf/surf-open.sh
+bindsym $mod+Shift+v exec "$HOME/scripts/anywhere.sh"

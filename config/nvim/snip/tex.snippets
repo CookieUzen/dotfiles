@@ -83,8 +83,7 @@ $2
 \end{column} $0
 endsnippet
 
-
-snippet fig "picture" bi
+snippet pic "picture" bi
 \begin{figure}[h]
 \begin{center}
 	\includegraphics[width=\textwidth]{./figures/$1}
@@ -96,6 +95,12 @@ snippet ali "align" bi
 \begin{align*}
 	$1
 \end{align*} $0
+endsnippet
+
+snippet align "align" bi
+\begin{align}
+	$1
+\end{align} $0
 endsnippet
 
 snippet lg "logorithem" 
@@ -112,6 +117,28 @@ snippet par "Paragraph"
 $0
 endsnippet
 
-snippet \" "Better Parenthesis"
-\`\`$1''
+snippet fig "figures"
+\begin{figure}[h]
+\centering
+$1
+\end{figure}
+$0
+endsnippet
+
+snippet sI "Add Notetaking Snip"
+\noindent\texttt{$1} [\$$2\$]
+\begin{itemize}
+	\item \textbf{SI Unit:} $3
+\end{itemize}
+$0
+endsnippet
+
+snippet eQ "Equations"
+\\$1section{$2}
+\begin{figure}[h]
+	\begin{align}
+		$3
+	\end{align} 
+\end{figure}
+$0
 endsnippet

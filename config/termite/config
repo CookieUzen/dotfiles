@@ -61,7 +61,7 @@ highlight = #2f2f2f
 # Based on https://github.com/sonph/onehalf
 # By https://github.com/dbinary
 
-background = rgba(63, 63, 63, 0.7)
+background = rgba(63, 63, 63, 0.4)
 foreground = #dcdfe4
 selection_foreground = #000000
 selection_background = #FFFACD

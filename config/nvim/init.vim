@@ -2,15 +2,17 @@
 source ~/.config/nvim/plugin.vim
 
 " Color
-colo dracula
+colo wal
 
 " Tabstop
-set tabstop=4 shiftwidth=4 expandtab
+set tabstop=4 shiftwidth=4 "expandtab
 
 " Syntax
 syntax on
 
 " Wrapping with indentation
+set nowrap
+
 set breakindent
 set formatoptions=l
 set lbr
@@ -21,8 +23,10 @@ tnoremap <C-q> <C-\><C-n>
 " Quick Insert
 nnoremap qo o<Esc>
 nnoremap qO O<Esc>
-
 nnoremap <C-i> i_<Esc>r
+
+" Quick deleting
+nnoremap dD 0D
 
 " Better Scrolling
 if !&scrolloff
@@ -76,7 +80,9 @@ set mouse=a
 
 " Macros
 map <F9> :! echo `detex "%" \| wc -w ` words <CR>
-map <F10> : silent exec '! termite -d "`pwd`" &' <CR>
+" map <F10> :! dirname % \| xsel --clipboard --input <CR><CR>
+map <F10> : silent exec '! st sh -c "cd $(dirname "%"); zsh" ' <CR>
+" map <F10> : ! st sh -c 'echo $(pwd); zsh' 
 
 " termguicolors
 set notermguicolors

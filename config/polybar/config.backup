@@ -62,7 +62,7 @@ modules-left = filesystem info-hackspeed wlan eth
 modules-center = pulseaudio player-cmus
 modules-right = battery temperature cpu memory
 
-wm-restack = i3
+wm-restack = bspwm
 
 ;override-redirect = true
 
@@ -98,14 +98,12 @@ font-1 = unifont:fontformat=truetype:size=10:antialias=false;0
 font-2 = siji:pixelsize=12;1
 
 modules-left = 
-modules-center = i3
+modules-center = bspwm
 modules-right = date
 
 tray-position = right
 tray-padding = 2
 ;tray-background = #0063ff
-
-wm-restack = i3
 
 ;override-redirect = true
 

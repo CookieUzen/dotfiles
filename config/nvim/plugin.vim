@@ -42,7 +42,7 @@ Plugin 'mbbill/undotree'
 Bundle 'christoomey/vim-tmux-navigator'
 Plugin 'christoomey/vim-system-copy'
 
-" beffers
+" buffers
 Plugin 'vim-airline/vim-airline'
 Plugin 'majutsushi/tagbar'
 Plugin 'jeetsukumaran/vim-buffergator'
@@ -58,6 +58,13 @@ Plugin 'junegunn/limelight.vim'
 Plugin 'godlygeek/tabular'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
+Plugin '907th/vim-auto-save'
+
+" Filetypes
+Plugin 'sirtaj/vim-openscad'
+
+" Folders
+Plugin 'scrooloose/nerdtree'
 
 call vundle#end()
 filetype plugin indent on
@@ -88,10 +95,12 @@ let g:vimtex_view_method='zathura'
 let g:vimtex_quickfix_mode=0
 let g:tex_conceal='abdmg'
 
+let g:vimtex_imaps_leader = ';'
+
 " Ultisnips
 let g:UltiSnipsExpandTrigger='<tab>'
-let g:UltiSnipsJumpForwardTrigger='<tab>'
-let g:UltiSnipsJumpBackwardTrigger='<s-tab>'
+let g:UltiSnipsJumpForwardTrigger='<C-j>'
+let g:UltiSnipsJumpBackwardTrigger='<C-k>'
 let g:UltiSnipsSnippetDirectories=["snip"]
 
 " Limelight & Goyo
@@ -119,4 +128,12 @@ nmap <silent> <leader>k :ALEPrevious<cr>
 " inkscape-figures
 inoremap <C-f> <Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>
 nnoremap <C-f> : silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>
+
+" autopair
+let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', "`":"`", '```':'```', '"""':'"""', "'''":"'''", "``":"''"}
+let g:AutoPairsShortcutToggle = '<>'
+
+" autosave
+let g:auto_save = 1  " enable AutoSave on Vim startup
+let g:auto_save_events = ["InsertLeave", "TextChanged"]
 

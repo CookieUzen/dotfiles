@@ -22,7 +22,7 @@ tnoremap <C-q> <C-\><C-n>
 
 " Quick Insert
 nnoremap qo o<Esc>
-nnoremap qO O<Esc>
+nnoremap qO ko<Esc>
 nnoremap <C-i> i_<Esc>r
 
 " Quick deleting

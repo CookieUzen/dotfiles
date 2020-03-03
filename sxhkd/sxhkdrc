@@ -128,7 +128,7 @@ XF86AudioMicMute
 
 # pointer_follows_focus
 XF86Launch1
-    bspc config pointer_follows_focus false
+    bspc config pointer_follows_focus false && xmodmap $HOME/.Xmodmap
 
 # Surf
 F5

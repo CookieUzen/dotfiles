@@ -26,9 +26,9 @@ dark = #333333
 red = #d0253d
 orange  = #ff8700
 yellow = #fec418
-light.blue = #bbdded
+# light.blue = #bbdded
 blue = #0088CC
-dark.blue = #00293F
+# dark.blue = #00293F
 purple = #815ba4
 pink = #fa00ab
 green = #38fc48
@@ -39,7 +39,7 @@ green = #38fc48
 # monitor = ${env:MONITOR}
 
 width = 100%
-height = 35
+height = 40
 offset-x = 0
 offset-y = 0
 ;bottom = true
@@ -57,10 +57,10 @@ padding-right = 0
 module-margin-left = 0 
 module-margin-right = 0
 
-font-0 = Noto Sans:pixelsize=11;2
+font-0 = Noto Sans:pixelsize=14;2
 
 # font-0 = Hack:size=10;3
-font-1 = FontAwesome:size=10;2
+font-1 = FontAwesome:size=12;2
 # font-2 = Droid Sans Mono for Powerline:pixelsize=10;2
 
 modules-left = cmus volume vpn
@@ -327,7 +327,7 @@ format-padding = 2
 [module/wlan]
 type = internal/network
 
-interface = wls1
+interface = wlp62s0
 interval = 5
 
 label-connected = " %essid%  " 
@@ -540,7 +540,7 @@ type = internal/bspwm
 label-focused = %name%
 label-focused-background = ${colors.blue}
 label-focused-padding = 2
-label-focused-underline = ${colors.light.blue}
+label-focused-underline = ${colors.orange}
 
 label-occupied = %name%
 label-occupied-padding = 2

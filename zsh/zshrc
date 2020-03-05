@@ -12,6 +12,7 @@ export MANPATH="/usr/local/man:$MANPATH"
 export LANG=en_US.UTF-8
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/home/uzen/bin/:$PATH"
+export PATH="/home/uzen/.local/bin/:$PATH"
 
 
 # Settings
@@ -62,7 +63,6 @@ alias tetris="cd ~/bin/Tetris && ./Tetris"
 alias wechat="wine \"$HOME/.wine/drive_c/Program Files (x86)/Tencent/WeChat/WeChat.exe\""
 alias zhumu="wine $HOME/.wine/drive_c/users/uzen/Application\ Data/Zhumu\ Cloud\ Meetings/bin/zhumu.exe"
 alias dictg="dict -d gcide "
-alias wal="wal --backend colorz -i "
 alias nt="nvim *.tex"
 alias db="bash $HOME/scripts/save_page_as -b firefox"
 alias tt="bash $HOME/scripts/timetable.sh"

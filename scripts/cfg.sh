@@ -7,4 +7,3 @@ else
     nvim /home/uzen/.config/"$dir"/*
 fi
 
-

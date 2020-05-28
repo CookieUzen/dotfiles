@@ -1,0 +1,38 @@
+#
+# Volume
+#
+KP_Up 
+	amixer set Master 5%+
+KP_Down 
+	amixer set Master 5%-
+
+XF86AudioRaiseVolume 
+	amixer set Master 5%+
+XF86AudioLowerVolume 
+	amixer set Master 5%-
+XF86AudioMute 
+    amixer set Master toggle
+
+#
+# Custom Commands
+#
+
+# Lock Screen
+XF86Launch1
+    light-locker-command -l
+
+# Surf
+F5
+    bash "$HOME"/.surf/surf-open.sh
+
+# Vimanywhere
+alt + shift + v
+    "$HOME"/scripts/anywhere.sh
+
+# Screenshot
+alt + ctrl + s
+	scrot 
+
+# Cmus
+alt + shift + u 
+	st -n cmus -e cmus &

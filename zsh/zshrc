@@ -1,7 +1,7 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block, everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p11k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
@@ -35,15 +35,15 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # Aliases
-alias df="source ~/scripts/dfolder.sh"
+alias f="source ~/scripts/dfolder.sh"
 alias asa="source ~/scripts/asa.sh"
 alias cfg="source ~/scripts/cfg.sh"
-alias rmt="rmtrash"
+alias rm="rmtrash"
 alias init="nvim ~/.config/nvim/init.vim"
 alias plugin="nvim ~/.config/nvim/plugin.vim"
 alias upower="upower -i /org/freedesktop/UPower/devices/battery_BAT0"
-alias surf="bash ~/.surf/surf-open.sh"
-alias clip="xsel --clipboard --input"
+alias ssurf="bash ~/.surf/surf-open.sh"
+# alias clip="xsel --clipboard --input"
 alias cclip="cat | clip"
 alias t="todo.sh"
 
@@ -52,24 +52,91 @@ bindkey -v
 export KEYTIMEOUT=1
 
 # Pywal
-(cat ~/.cache/wal/sequences &)
-source ~/.cache/wal/colors-tty.sh
+# (cat ~/.cache/wal/sequences &)
+# source ~/.cache/wal/colors-tty.sh
 
 # Personal Settings
 export EDITOR="/usr/bin/nvim"
 export VISUAL="/usr/bin/nvim"
 
-alias tetris="cd ~/bin/Tetris && ./Tetris"
-alias wechat="wine \"$HOME/.wine/drive_c/Program Files (x86)/Tencent/WeChat/WeChat.exe\""
-alias zhumu="wine $HOME/.wine/drive_c/users/uzen/Application\ Data/Zhumu\ Cloud\ Meetings/bin/zhumu.exe"
-alias dictg="dict -d gcide "
-alias nt="nvim *.tex"
-alias db="bash $HOME/scripts/save_page_as -b firefox"
+alias wechat="nohup wine \"$HOME/.wine/drive_c/Program Files (x86)/Tencent/WeChat/WeChat.exe\""
 alias tt="bash $HOME/scripts/timetable.sh"
-alias cw="cd \"$HOME/.wine/drive_c/Program Files (x86)\""
-alias mc="java -jar /opt/shiginima/shiginima.jar"
+alias csv="~/scripts/csv.sh"
+alias ww="~/scripts/wget_webpage.sh"
+alias neofetch="neofetch --ascii ~/.ascii"
+alias yeet="pwd > ~/.dir"
+alias yoink="rm ~/.dir && cd"
+alias mv="mv -i"
+alias zathura="detach zathura"
 
 unsetopt share_history
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+source /home/uzen/.config/broot/launcher/bash/br
+###-begin-pm2-completion-###
+### credits to npm for the completion file model
+#
+# Installation: pm2 completion >> ~/.bashrc  (or ~/.zshrc)
+#
+
+COMP_WORDBREAKS=${COMP_WORDBREAKS/=/}
+COMP_WORDBREAKS=${COMP_WORDBREAKS/@/}
+export COMP_WORDBREAKS
+
+if type complete &>/dev/null; then
+  _pm2_completion () {
+    local si="$IFS"
+    IFS=$'\n' COMPREPLY=($(COMP_CWORD="$COMP_CWORD" \
+                           COMP_LINE="$COMP_LINE" \
+                           COMP_POINT="$COMP_POINT" \
+                           pm2 completion -- "${COMP_WORDS[@]}" \
+                           2>/dev/null)) || return $?
+    IFS="$si"
+  }
+  complete -o default -F _pm2_completion pm2
+elif type compctl &>/dev/null; then
+  _pm2_completion () {
+    local cword line point words si
+    read -Ac words
+    read -cn cword
+    let cword-=1
+    read -l line
+    read -ln point
+    si="$IFS"
+    IFS=$'\n' reply=($(COMP_CWORD="$cword" \
+                       COMP_LINE="$line" \
+                       COMP_POINT="$point" \
+                       pm2 completion -- "${words[@]}" \
+                       2>/dev/null)) || return $?
+    IFS="$si"
+  }
+  compctl -K _pm2_completion + -f + pm2
+fi
+###-end-pm2-completion-###
+
+# pip zsh completion start
+function _pip_completion {
+  local words cword
+  read -Ac words
+  read -cn cword
+  reply=( $( COMP_WORDS="$words[*]" \
+             COMP_CWORD=$(( cword-1 )) \
+             PIP_AUTO_COMPLETE=1 $words[1] 2>/dev/null ))
+}
+compctl -K _pip_completion pip
+# pip zsh completion end
+
+
+[[ -f "$HOME"/.dir ]] && cd "$(cat "$HOME"/.dir)" 
+export http_proxy="http://127.0.0.1:7890/"
+export ftp_proxy="ftp://:/"
+export rsync_proxy="rsync://127.0.0.1:7890/"
+export no_proxy="y"
+export HTTP_PROXY="http://127.0.0.1:7890/"
+export FTP_PROXY="ftp://:/"
+export RSYNC_PROXY="rsync://127.0.0.1:7890/"
+export NO_PROXY="y"
+export https_proxy="http://127.0.0.1:7890/"
+export HTTPS_PROXY="http://127.0.0.1:7890/"

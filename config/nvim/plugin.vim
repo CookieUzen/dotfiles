@@ -15,39 +15,55 @@ Plugin 'jacoborus/tender.vim'
 Plugin 'tomasr/molokai'
 Plugin 'morhetz/gruvbox'
 Plugin 'dylanaraps/wal.vim'
+Plugin 'mhartington/oceanic-next'
+Plugin 'drewtempelmeyer/palenight.vim'
+Plugin 'ayu-theme/ayu-vim'
+Plugin 'joshdick/onedark.vim'
+Plugin 'reedes/vim-colors-pencil'
+Plugin 'arcticicestudio/nord-vim'
+
+" Eye Candy
+Plugin 'ap/vim-css-color'
+Plugin 'ap/vim-buftabline'
+Plugin 'itchyny/lightline.vim'
 
 " Languages
 Plugin 'javacomplete'
 Plugin 'davidhalter/jedi-vim'
-Plugin 'Plasticboy/vim-markdown' 
+" Plugin 'Plasticboy/vim-markdown' 
 Plugin 'lervag/vimtex'
 Plugin 'c.vim'
+Plugin 'sirtaj/vim-openscad'
+Plugin 'vim-pandoc/vim-pandoc'
+Plugin 'vim-pandoc/vim-rmarkdown'
+Plugin 'vim-pandoc/vim-pandoc-syntax'
+Plugin 'stevearc/vim-arduino'
 
 " Error Checking
 Plugin 'rhysd/vim-grammarous' 
 Plugin 'dense-analysis/ale'
+Plugin 'maximbaz/lightline-ale'
 Plugin 'reedes/vim-wordy'
 
 " Autocomplete
 Plugin 'jiangmiao/auto-pairs'
-Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plugin 'Shougo/deoplete.nvim'
 Plugin 'sirver/ultisnips'
 Plugin 'honza/vim-snippets'
+Plugin 'dkarter/bullets.vim'
 
 " Clipboard/Undo
 Plugin 'maxbrunsfeld/vim-yankstack'
 Plugin 'mbbill/undotree'
-
+ 
 " Tmux
-Bundle 'christoomey/vim-tmux-navigator'
-Plugin 'christoomey/vim-system-copy'
+" Bundle 'christoomey/vim-tmux-navigator'
+" Plugin 'christoomey/vim-system-copy'
 
-" buffers
-Plugin 'vim-airline/vim-airline'
+" Buffers
 Plugin 'majutsushi/tagbar'
 Plugin 'jeetsukumaran/vim-buffergator'
-
-" Start menu
+Plugin 'unblevable/quick-scope'
 Plugin 'mhinz/vim-startify'
 
 " Limelight/Goyo
@@ -55,13 +71,12 @@ Plugin 'junegunn/goyo.vim'
 Plugin 'junegunn/limelight.vim'
 
 " Code
-Plugin 'godlygeek/tabular'
+" Plugin 'godlygeek/tabular'
+Plugin 'junegunn/vim-easy-align'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin '907th/vim-auto-save'
-
-" Filetypes
-Plugin 'sirtaj/vim-openscad'
+Plugin 'airblade/vim-gitgutter'
 
 " Folders
 Plugin 'scrooloose/nerdtree'
@@ -116,12 +131,16 @@ let g:limelight_priority = -1
 " Deoplete
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_smart_case = 1
-call deoplete#custom#var('omni', 'input_patterns', {
-        \ 'tex': g:vimtex#re#deoplete
-        \})
+"call deoplete#custom#var('omni', 'input_patterns', {
+"        \ 'tex': g:vimtex#re#deoplete
+"        \})
+"inoremap <silent><expr> <C-n>
+"\ pumvisible() ? "\<C-SPACE>" :
+"\ <SID>check_back_space() ? "\<TAB>" :
+"\ deoplete#mappings#manual_complete()
 
 " Ale
-let g:airline#extensions#ale#enabled = 1
+" let g:airline#extensions#ale#enabled = 1
 nmap <silent> <leader>j :ALENext<cr>
 nmap <silent> <leader>k :ALEPrevious<cr>
 
@@ -137,3 +156,66 @@ let g:AutoPairsShortcutToggle = '<>'
 let g:auto_save = 1  " enable AutoSave on Vim startup
 let g:auto_save_events = ["InsertLeave", "TextChanged"]
 
+" Palenight
+let g:palenight_terminal_italics=1
+
+" Airline
+" let g:airline_theme='simple'
+
+" Lightline-Ale
+" Register the components:
+let g:lightline = {}
+
+let g:lightline.component_expand = {
+      \  'linter_checking': 'lightline#ale#checking',
+      \  'linter_infos': 'lightline#ale#infos',
+      \  'linter_warnings': 'lightline#ale#warnings',
+      \  'linter_errors': 'lightline#ale#errors',
+      \  'linter_ok': 'lightline#ale#ok',
+      \ }
+
+" Set color to the components:
+let g:lightline.component_type = {
+      \     'linter_checking': 'right',
+      \     'linter_infos': 'right',
+      \     'linter_warnings': 'warning',
+      \     'linter_errors': 'error',
+      \     'linter_ok': 'right',
+      \ }
+
+" Lightline
+let g:lightline.active = { 'right': [[ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok' ]] }
+
+let g:lightline = {
+      \ 'active': {
+      \  'right': [	[ 'lineinfo' ],
+      \             [ 'percent' ],
+      \             [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok' ] ]
+      \ },
+\ }
+
+" Quickscope
+" Trigger a highlight in the appropriate direction when pressing these keys:
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+
+" Yankstack
+call yankstack#setup()
+nmap Y y$
+
+" Vim Rainbow
+let g:rainbow_active = 1
+
+" EasyAlign
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
+
+" Bullets.vim
+let g:bullets_enabled_file_types = [
+    \ 'markdown',
+    \ 'gitcommit',
+    \ 'scratch',
+	\ 'rmd'
+    \]
+
+" Arduino
+autocmd BufNewFile,BufRead *.ino let g:airline_section_x='%{MyStatusLine()}'

@@ -1,0 +1,38 @@
+#
+# wm independent hotkeys
+#
+
+# make sxhkd reload its configuration files:
+alt + Escape
+	pkill -USR1 -x sxhkd
+
+#
+# Volume
+#
+KP_Up 
+	amixer set Master 5%+
+KP_Down 
+	amixer set Master 5%-
+
+XF86AudioRaiseVolume 
+	amixer set Master 5%+
+XF86AudioLowerVolume 
+	amixer set Master 5%-
+XF86AudioMute 
+    amixer set Master toggle
+
+#
+# Custom Commands
+#
+
+# Vimanywhere
+alt + shift + v
+    "$HOME"/scripts/anywhere.sh
+
+# Cmus
+alt + shift + u 
+	st -c cmus -e cmus &
+
+# Qutebrowser
+alt + shift + @space
+	qutebrowser

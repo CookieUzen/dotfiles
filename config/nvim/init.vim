@@ -2,9 +2,8 @@
 source ~/.config/nvim/plugin.vim
 
 " Color
-let g:gruxbox_italics=1
 set background=dark
-colo gruvbox
+colo dracula
 
 " Tabstop
 set tabstop=4 shiftwidth=4 "expandtab
@@ -58,7 +57,6 @@ set spelllang=en_us
 " highlight NonText ctermbg=none
 " hi Normal guibg=NONE ctermbg=NONE
 
-
 " Spell Fixing
 map <F8> [s 1z=
 
@@ -70,6 +68,12 @@ map <F8> [s 1z=
 set relativenumber
 set nu
 
+" Easy Scrolling
+" map J gj
+" map K gk
+" map H b
+" map L w
+
 " Enable Mouse
 set mouse=a
 
@@ -77,11 +81,14 @@ set mouse=a
 map <F9> :! echo `detex "%" \| wc -w ` words <CR>
 " map <F10> :! dirname % \| xsel --clipboard --input <CR><CR>
 map <F10> : silent exec '! st sh -c "cd $(dirname "%"); zsh" ' <CR>
+" map <F10> : ! st sh -c 'echo $(pwd); zsh' 
 
 " termguicolors
 if (has("termguicolors"))
   set termguicolors
 endif
+
+" set notermguicolors
 
 " foldmethod
 set foldmethod=syntax

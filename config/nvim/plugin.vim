@@ -30,14 +30,14 @@ Plugin 'itchyny/lightline.vim'
 " Languages
 Plugin 'javacomplete'
 Plugin 'davidhalter/jedi-vim'
-" Plugin 'Plasticboy/vim-markdown' 
+Plugin 'Plasticboy/vim-markdown' 
 Plugin 'lervag/vimtex'
 Plugin 'c.vim'
+Plugin 'stevearc/vim-arduino'
 Plugin 'sirtaj/vim-openscad'
 Plugin 'vim-pandoc/vim-pandoc'
 Plugin 'vim-pandoc/vim-rmarkdown'
 Plugin 'vim-pandoc/vim-pandoc-syntax'
-Plugin 'stevearc/vim-arduino'
 
 " Error Checking
 Plugin 'rhysd/vim-grammarous' 
@@ -71,8 +71,8 @@ Plugin 'junegunn/goyo.vim'
 Plugin 'junegunn/limelight.vim'
 
 " Code
-" Plugin 'godlygeek/tabular'
-Plugin 'junegunn/vim-easy-align'
+Plugin 'godlygeek/tabular'
+" Plugin 'junegunn/vim-easy-align'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin '907th/vim-auto-save'
@@ -80,6 +80,7 @@ Plugin 'airblade/vim-gitgutter'
 
 " Folders
 Plugin 'scrooloose/nerdtree'
+Plugin 'frazrepo/vim-rainbow'
 
 call vundle#end()
 filetype plugin indent on

@@ -9,11 +9,6 @@ alt + Escape
 #
 # Volume
 #
-KP_Up 
-	amixer set Master 5%+
-KP_Down 
-	amixer set Master 5%-
-
 XF86AudioRaiseVolume 
 	amixer set Master 5%+
 XF86AudioLowerVolume 

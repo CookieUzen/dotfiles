@@ -9,7 +9,7 @@ call vundle#begin('~/.config/nvim/bundle/')
 Plugin 'VundleVim/Vundle.vim'
 
 " Colorschemes
-Bundle 'sonph/onehalf', {'rtp' : 'vim/'}
+" Bundle 'sonph/onehalf', {'rtp' : 'vim/'}
 Plugin 'dracula/vim' 
 Plugin 'jacoborus/tender.vim'
 Plugin 'tomasr/molokai'
@@ -40,10 +40,10 @@ Plugin 'vim-pandoc/vim-rmarkdown'
 Plugin 'vim-pandoc/vim-pandoc-syntax'
 
 " Error Checking
-Plugin 'rhysd/vim-grammarous' 
+" Plugin 'rhysd/vim-grammarous' 
 Plugin 'dense-analysis/ale'
 Plugin 'maximbaz/lightline-ale'
-Plugin 'reedes/vim-wordy'
+" Plugin 'reedes/vim-wordy'
 
 " Autocomplete
 Plugin 'jiangmiao/auto-pairs'
@@ -58,7 +58,6 @@ Plugin 'mbbill/undotree'
  
 " Tmux
 " Bundle 'christoomey/vim-tmux-navigator'
-" Plugin 'christoomey/vim-system-copy'
 
 " Buffers
 Plugin 'majutsushi/tagbar'
@@ -72,7 +71,7 @@ Plugin 'junegunn/limelight.vim'
 
 " Code
 Plugin 'godlygeek/tabular'
-" Plugin 'junegunn/vim-easy-align'
+Plugin 'junegunn/vim-easy-align'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin '907th/vim-auto-save'

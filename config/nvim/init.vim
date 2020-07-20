@@ -3,7 +3,7 @@ source ~/.config/nvim/plugin.vim
 
 " Color
 set background=dark
-colo dracula
+colo OceanicNext
 
 " Tabstop
 set tabstop=4 shiftwidth=4 "expandtab

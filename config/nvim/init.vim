@@ -105,3 +105,6 @@ cmap w!! w !sudo tee > /dev/null %
 
 cmap yeet !pwd > "$HOME"/.dir
 cmap yoink !rm "$HOME"/.dir
+
+" Set Shell to Bash
+set shell=/bin/bash

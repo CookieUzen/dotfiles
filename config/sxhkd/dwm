@@ -9,10 +9,12 @@ alt + Escape
 #
 # Volume
 #
-KP_Up 
+Prior
 	amixer set Master 5%+
-KP_Down 
+Next
 	amixer set Master 5%-
+Pause
+    amixer set Master toggle
 
 XF86AudioRaiseVolume 
 	amixer set Master 5%+
@@ -32,6 +34,10 @@ alt + shift + v
 # Cmus
 alt + shift + u 
 	st -c cmus -e cmus &
+
+# Keymap
+Scroll_Lock
+	bash ~/scripts/dvorak.sh 
 
 # Qutebrowser
 alt + shift + @space

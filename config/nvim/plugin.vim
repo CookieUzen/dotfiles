@@ -76,6 +76,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin '907th/vim-auto-save'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'tpope/vim-fugitive'
 
 " Folders
 Plugin 'scrooloose/nerdtree'
@@ -130,7 +131,7 @@ let g:limelight_priority = -1
 
 " Deoplete
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#enable_smart_case = 1
+" let g:deoplete#enable_smart_case = 1
 "call deoplete#custom#var('omni', 'input_patterns', {
 "        \ 'tex': g:vimtex#re#deoplete
 "        \})

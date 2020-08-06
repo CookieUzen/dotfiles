@@ -3,11 +3,7 @@ source ~/.config/nvim/plugin.vim
 
 " Color
 set background=dark
-<<<<<<< HEAD
 colo palenight
-=======
-colo OceanicNext
->>>>>>> 527636aaac441b93f74b7c4949240f52284a6196
 
 " Tabstop
 set tabstop=4 shiftwidth=4 "expandtab
@@ -110,8 +106,5 @@ cmap w!! w !sudo tee > /dev/null %
 cmap yeet !pwd > "$HOME"/.dir
 cmap yoink !rm "$HOME"/.dir
 
-<<<<<<< HEAD
-=======
 " Set Shell to Bash
->>>>>>> 527636aaac441b93f74b7c4949240f52284a6196
 set shell=/bin/bash

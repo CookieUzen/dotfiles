@@ -226,4 +226,13 @@ define c(m, n) {
 }
 
 c        = 299792458            /* speed of light in the vacuum in m/s */
+h        = 6.6260755*10^(-34)   /* Planck constant in Js */
 g        = 9.80665              /* acceleration due to gravity on surface of earth in m/s^2 */
+
+define deg(rad) {				/* Degree to Radians */
+	return rad * 180 / pi
+}
+
+define rad(deg) {				/* Radians to Degree */
+	return deg / 180 * pi
+}

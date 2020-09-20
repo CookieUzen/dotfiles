@@ -77,6 +77,7 @@ Plugin 'tpope/vim-repeat'
 Plugin '907th/vim-auto-save'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
+Plugin 'lilydjwg/fcitx.vim'
 
 " Folders
 Plugin 'scrooloose/nerdtree'

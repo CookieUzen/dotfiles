@@ -146,3 +146,27 @@ endsnippet
 snippet as "Autocite"
 \autocite{$1} $0
 endsnippet
+
+snippet pkg "usepackage"
+\usepackage{$1}$0
+endsnippet
+
+snippet doc "Article Template"
+\documentclass{${5:article}}
+
+\title{$1}
+\author{${2:Uzen}}
+\date{${4:`date +%b\ %d`}}
+
+\usepackage{indentfirst}
+
+\parskip=1em
+
+\begin{document}
+
+\maketitle
+
+$3$0
+
+\end{document}
+endsnippet

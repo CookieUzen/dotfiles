@@ -1,104 +1,100 @@
-" Vundle
-set nocompatible
-filetype off
+if &compatible
+	set nocompatible
+endif
+" Add the dein installation directory into runtimepath
+set runtimepath+=~/.config/dein/repos/github.com/Shougo/dein.vim
 
-set rtp+=~/.config/nvim/bundle/Vundle.vim
-call vundle#begin('~/.config/nvim/bundle/')
+if dein#load_state('~/.config/dein')
+	call dein#begin('~/.config/dein')
 
-" Vundle
-Plugin 'VundleVim/Vundle.vim'
+	" Plugin Manager
+	call dein#add('~/.config/dein/repos/github.com/Shougo/dein.vim')
+	call dein#add('wsdjeg/dein-ui.vim')
 
-" Colorschemes
-" Bundle 'sonph/onehalf', {'rtp' : 'vim/'}
-Plugin 'dracula/vim' 
-Plugin 'jacoborus/tender.vim'
-Plugin 'tomasr/molokai'
-Plugin 'morhetz/gruvbox'
-Plugin 'dylanaraps/wal.vim'
-Plugin 'mhartington/oceanic-next'
-Plugin 'drewtempelmeyer/palenight.vim'
-Plugin 'ayu-theme/ayu-vim'
-Plugin 'joshdick/onedark.vim'
-Plugin 'reedes/vim-colors-pencil'
-Plugin 'arcticicestudio/nord-vim'
+	" Deoplete
+	call dein#add('Shougo/deoplete.nvim')
+	if !has('nvim')
+		call dein#add('roxma/nvim-yarp')
+		call dein#add('roxma/vim-hug-neovim-rpc')
+	endif
 
-" Eye Candy
-Plugin 'ap/vim-css-color'
-Plugin 'ap/vim-buftabline'
-Plugin 'itchyny/lightline.vim'
+	" Colorschemes
+	call dein#add('dracula/vim')
+	call dein#add('jacoborus/tender.vim')
+	call dein#add('tomasr/molokai')
+	call dein#add('morhetz/gruvbox')
+	call dein#add('dylanaraps/wal.vim')
+	call dein#add('mhartington/oceanic-next')
+	call dein#add('drewtempelmeyer/palenight.vim')
+	call dein#add('ayu-theme/ayu-vim')
+	call dein#add('joshdick/onedark.vim')
+	call dein#add('reedes/vim-colors-pencil')
+	call dein#add('arcticicestudio/nord-vim')
 
-" Languages
-Plugin 'javacomplete'
-Plugin 'davidhalter/jedi-vim'
-Plugin 'Plasticboy/vim-markdown' 
-Plugin 'lervag/vimtex'
-Plugin 'c.vim'
-Plugin 'stevearc/vim-arduino'
-Plugin 'sirtaj/vim-openscad'
-Plugin 'vim-pandoc/vim-pandoc'
-Plugin 'vim-pandoc/vim-rmarkdown'
-Plugin 'vim-pandoc/vim-pandoc-syntax'
+	" Eye Candy
+	call dein#add('ap/vim-css-color')
+	call dein#add('ap/vim-buftabline')
+	call dein#add('itchyny/lightline.vim')
 
-" Error Checking
-" Plugin 'rhysd/vim-grammarous' 
-Plugin 'dense-analysis/ale'
-Plugin 'maximbaz/lightline-ale'
-" Plugin 'reedes/vim-wordy'
+	" Languages
+	call dein#add('vim-scripts/javacomplete')
+	call dein#add('davidhalter/jedi-vim')
+	call dein#add('Plasticboy/vim-markdown' )
+	call dein#add('lervag/vimtex')
+	call dein#add('vim-scripts/c.vim')
+	call dein#add('stevearc/vim-arduino')
+	call dein#add('sirtaj/vim-openscad')
+	call dein#add('vim-pandoc/vim-pandoc')
+	call dein#add('vim-pandoc/vim-rmarkdown')
+	call dein#add('vim-pandoc/vim-pandoc-syntax')
 
-" Autocomplete
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'Shougo/deoplete.nvim'
-Plugin 'sirver/ultisnips'
-Plugin 'honza/vim-snippets'
-Plugin 'dkarter/bullets.vim'
+	" Error Checking
+	call dein#add('dense-analysis/ale')
+	call dein#add('maximbaz/lightline-ale')
+	" call dein#add('reedes/vim-wordy')
+	" call dein#add('rhysd/vim-grammarous' )
 
-" Clipboard/Undo
-Plugin 'maxbrunsfeld/vim-yankstack'
-Plugin 'mbbill/undotree'
+	" Autocomplete
+	call dein#add('jiangmiao/auto-pairs')
+	call dein#add('Shougo/deoplete.nvim')
+	call dein#add('sirver/ultisnips')
+	call dein#add('honza/vim-snippets')
+	call dein#add('dkarter/bullets.vim')
+
+	" Clipboard/Undo
+	call dein#add('maxbrunsfeld/vim-yankstack')
+	call dein#add('mbbill/undotree')
  
-" Tmux
-" Bundle 'christoomey/vim-tmux-navigator'
+	" Tmux
+	call dein#add('christoomey/vim-tmux-navigator')
 
-" Buffers
-Plugin 'majutsushi/tagbar'
-Plugin 'jeetsukumaran/vim-buffergator'
-Plugin 'unblevable/quick-scope'
-Plugin 'mhinz/vim-startify'
+	" Buffers
+	call dein#add('majutsushi/tagbar')
+	call dein#add('jeetsukumaran/vim-buffergator')
+	call dein#add('unblevable/quick-scope')
+	call dein#add('mhinz/vim-startify')
 
-" Limelight/Goyo
-Plugin 'junegunn/goyo.vim'
-Plugin 'junegunn/limelight.vim'
+	" Limelight/Goyo
+	call dein#add('junegunn/goyo.vim')
+	call dein#add('junegunn/limelight.vim')
 
-" Code
-Plugin 'godlygeek/tabular'
-Plugin 'junegunn/vim-easy-align'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-repeat'
-Plugin '907th/vim-auto-save'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'tpope/vim-fugitive'
-Plugin 'lilydjwg/fcitx.vim'
+	" Code
+	call dein#add('godlygeek/tabular')
+	call dein#add('junegunn/vim-easy-align')
+	call dein#add('tpope/vim-surround')
+	call dein#add('tpope/vim-repeat')
+	call dein#add('907th/vim-auto-save')
+	call dein#add('airblade/vim-gitgutter')
+	call dein#add('tpope/vim-fugitive')
+	call dein#add('lilydjwg/fcitx.vim')
 
-" Folders
-Plugin 'scrooloose/nerdtree'
-Plugin 'frazrepo/vim-rainbow'
+	" Folders
+	call dein#add('scrooloose/nerdtree')
+	call dein#add('frazrepo/vim-rainbow')
 
-call vundle#end()
-filetype plugin indent on
-
-" omnifuncs
-" if has("autocmd")
-"   autocmd Filetype java setlocal omnifunc=javacomplete#Complete
-" endif
-" augroup omnifuncs
-"   autocmd!
-"   autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-"   autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-"   autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-"   autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-"   autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-" augroup end
-
+	call dein#end()
+	call dein#save_state()
+endif
 
 " undotree
 if has("persistent_undo")

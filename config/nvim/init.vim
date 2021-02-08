@@ -53,9 +53,9 @@ map <F3> :so ~/.config/nvim/init.vim <CR>
 set spelllang=en_us
 
 " Transparent window
-" highlight Normal ctermbg=none
-" highlight NonText ctermbg=none
-" hi Normal guibg=NONE ctermbg=NONE
+highlight Normal ctermbg=none
+highlight NonText ctermbg=none
+hi Normal guibg=NONE ctermbg=NONE
 
 " Spell Fixing
 map <F8> [s 1z=

@@ -1,11 +1,12 @@
 #!/bin/bash
 
-# bash "$HOME"/.screenlayout/display.sh
+bash "$HOME"/.screenlayout/display.sh
 
-killall compton &
+killall picom &
 
-sh $HOME/.config/polybar/launch.sh
-compton --config /home/uzen/.config/compton/compton.conf &
+killall polybar &
+
+picom --config /home/uzen/.config/compton/picom.conf &
 
 bash /home/uzen/.fehbg
 
@@ -14,8 +15,11 @@ bash /home/uzen/.fehbg
 killall unclutter
 unclutter -idle 3 -root &
 
-rm -rf /home/uzen/anywhere/*
-
 xrdb /home/uzen/.Xresources
 
-sxhkd -c /home/uzen/.config/sxhkd/dwm
+sxhkd -c /home/uzen/.config/sxhkd/dwm & 
+
+fcitx &
+blueman-applet & 
+
+detach polybar example

@@ -87,17 +87,17 @@ call vundle#end()
 filetype plugin indent on
 
 " omnifuncs
-if has("autocmd")
-  autocmd Filetype java setlocal omnifunc=javacomplete#Complete
-endif
-augroup omnifuncs
-  autocmd!
-  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-  autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-  autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-  autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-augroup end
+" if has("autocmd")
+"   autocmd Filetype java setlocal omnifunc=javacomplete#Complete
+" endif
+" augroup omnifuncs
+"   autocmd!
+"   autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+"   autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+"   autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+"   autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+"   autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+" augroup end
 
 
 " undotree
@@ -142,9 +142,22 @@ let g:deoplete#enable_at_startup = 1
 "\ deoplete#mappings#manual_complete()
 
 " Ale
-" let g:airline#extensions#ale#enabled = 1
+let g:ale_enabled = 1
+let g:airline#extensions#ale#enabled = 1
 nmap <silent> <leader>j :ALENext<cr>
 nmap <silent> <leader>k :ALEPrevious<cr>
+
+let g:ale_completion_autoimport = 1
+
+" Ale fix
+let g:ale_fixers = {
+\	'*': ['remove_trailing_lines', 'trim_whitespace'],
+\}
+
+" Ale Completion
+" call deoplete#custom#option('sources', {
+" \	'_': 'ale',
+" \})
 
 " inkscape-figures
 inoremap <C-f> <Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>

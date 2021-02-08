@@ -51,9 +51,27 @@ function cmus () {
 			;;
 	esac
 }
+function battery2 () {
+	percentage="$(acpi | head -n 1 | cut -d',' -f 2 | sed 's/ //g' | sed 's/%//g')"
 
-function battery () {
-	percentage="$(acpi | cut -d',' -f 2 | sed 's/ //g' | sed 's/%//g')"
+	if [[ $percentage -gt 90 ]]; then
+		icon=""
+	elif [[ $percentage -gt 70 ]]; then
+		icon=""
+	elif [[ $percentage -gt 40 ]]; then
+		icon=""
+	elif [[ $percentage -gt 30 ]]; then
+		icon=""
+	fi
+
+	# Detect if charging
+	[[ $(acpi | cut -d',' -f 3) -eq "" ]] && icon=""
+
+	echo $icon $percentage\%
+}
+
+function battery1 () {
+	percentage="$(acpi | tail -n 1 | cut -d',' -f 2 | sed 's/ //g' | sed 's/%//g')"
 
 	if [[ $percentage -gt 90 ]]; then
 		icon=""
@@ -73,7 +91,7 @@ function battery () {
 
 function connection () {
 	# Replace wlp62s0 with your wifi module
-	text="$(iw dev wlp62s0 link | head -n 2 | tail -n 1 | cut -d' ' -f 2)"
+	text="$(iw dev wlp3s0 link | head -n 2 | tail -n 1 | cut -d' ' -f 2)"
 	
 	[[ "$text" == "connected." ]] && text="Disconnected"
 

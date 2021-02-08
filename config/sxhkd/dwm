@@ -33,7 +33,7 @@ alt + shift + v
 
 # Cmus
 alt + shift + u 
-	st -c cmus -e cmus &
+	alacritty -t cmus -e cmus &
 
 # Keymap
 Scroll_Lock

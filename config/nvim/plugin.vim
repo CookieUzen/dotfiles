@@ -38,7 +38,6 @@ if dein#load_state('~/.config/dein')
 
 	" Languages
 	call dein#add('vim-scripts/javacomplete')
-	call dein#add('davidhalter/jedi-vim')
 	call dein#add('Plasticboy/vim-markdown' )
 	call dein#add('lervag/vimtex')
 	call dein#add('vim-scripts/c.vim')
@@ -56,7 +55,7 @@ if dein#load_state('~/.config/dein')
 
 	" Autocomplete
 	call dein#add('jiangmiao/auto-pairs')
-	call dein#add('Shougo/deoplete.nvim')
+	call dein#add('davidhalter/jedi.vim')
 	call dein#add('sirver/ultisnips')
 	call dein#add('honza/vim-snippets')
 	call dein#add('dkarter/bullets.vim')
@@ -90,7 +89,6 @@ if dein#load_state('~/.config/dein')
 
 	" Folders
 	call dein#add('scrooloose/nerdtree')
-	call dein#add('frazrepo/vim-rainbow')
 
 	call dein#end()
 	call dein#save_state()
@@ -195,6 +193,7 @@ let g:lightline.component_type = {
       \ }
 
 " Lightline
+let g:lightline = { 'colorscheme': 'palenight' }
 let g:lightline.active = { 'right': [[ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok' ]] }
 
 let g:lightline = {
@@ -230,3 +229,10 @@ let g:bullets_enabled_file_types = [
 
 " Arduino
 autocmd BufNewFile,BufRead *.ino let g:airline_section_x='%{MyStatusLine()}'
+
+" Tmux Navigator
+inoremap <silent> <C-h> <C-o>:TmuxNavigateLeft<cr>
+inoremap <silent> <C-j> <C-o>:TmuxNavigateDown<cr>
+inoremap <silent> <C-k> <C-o>:TmuxNavigateUp<cr>
+inoremap <silent> <C-l> <C-o>:TmuxNavigateRight<cr>
+inoremap <silent> <C-\> <C-o>:TmuxNavigatePrevious<cr>

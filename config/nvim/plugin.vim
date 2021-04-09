@@ -164,7 +164,8 @@ let g:AutoPairsShortcutToggle = '<>'
 
 " autosave
 let g:auto_save = 1  " enable AutoSave on Vim startup
-let g:auto_save_events = ["InsertLeave", "TextChanged"]
+let g:updatetime = 1000
+let g:auto_save_events = ["CursorHold"]
 
 " Palenight
 let g:palenight_terminal_italics=1

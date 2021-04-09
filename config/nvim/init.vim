@@ -43,9 +43,6 @@ set ignorecase
 " Conceal level
 set conceallevel=2
 
-" Latex
-map <F2> :! zathura "$(echo "%" \| cut -f 1 -d '.').pdf" & <CR><CR>
-
 " Source init.vim
 map <F3> :so ~/.config/nvim/init.vim <CR>
 
@@ -103,9 +100,6 @@ set clipboard+=unnamedplus
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
-
-cmap yeet !pwd > "$HOME"/.dir
-cmap yoink !rm "$HOME"/.dir
 
 " Set Shell to Bash
 set shell=/bin/bash

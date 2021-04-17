@@ -85,7 +85,8 @@ if dein#load_state('~/.config/dein')
 	call dein#add('907th/vim-auto-save')
 	call dein#add('airblade/vim-gitgutter')
 	call dein#add('tpope/vim-fugitive')
-	call dein#add('lilydjwg/fcitx.vim')
+	" call dein#add('lilydjwg/fcitx.vim')
+	call dein#add('kevinhwang91/vim-ibus-sw')
 
 	" Folders
 	call dein#add('scrooloose/nerdtree')
@@ -164,7 +165,7 @@ let g:AutoPairsShortcutToggle = '<>'
 
 " autosave
 let g:auto_save = 1  " enable AutoSave on Vim startup
-let g:updatetime = 1000
+let g:updatetime = 500
 let g:auto_save_events = ["CursorHold"]
 
 " Palenight

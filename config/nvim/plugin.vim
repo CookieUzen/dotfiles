@@ -160,8 +160,9 @@ inoremap <C-f> <Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" 
 nnoremap <C-f> : silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>
 
 " autopair
-let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', "`":"`", '```':'```', '"""':'"""', "'''":"'''", "``":"''"}
+let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', "`":"`", '```':'```', '"""':'"""', "'''":"'''", "``":"''", "$":"$", "$$":"$$", "_":"_", "__":"__"}
 let g:AutoPairsShortcutToggle = '<>'
+let g:AutoPairsMapCh = '<>'
 
 " autosave
 let g:auto_save = 1  " enable AutoSave on Vim startup
@@ -234,8 +235,8 @@ let g:bullets_enabled_file_types = [
 autocmd BufNewFile,BufRead *.ino let g:airline_section_x='%{MyStatusLine()}'
 
 " Tmux Navigator
-inoremap <silent> <C-h> <C-o>:TmuxNavigateLeft<cr>
-inoremap <silent> <C-j> <C-o>:TmuxNavigateDown<cr>
-inoremap <silent> <C-k> <C-o>:TmuxNavigateUp<cr>
-inoremap <silent> <C-l> <C-o>:TmuxNavigateRight<cr>
-inoremap <silent> <C-\> <C-o>:TmuxNavigatePrevious<cr>
+" inoremap <silent> <C-h> <C-o>:TmuxNavigateLeft<cr>
+" inoremap <silent> <C-j> <C-o>:TmuxNavigateDown<cr>
+" inoremap <silent> <C-k> <C-o>:TmuxNavigateUp<cr>
+" inoremap <silent> <C-l> <C-o>:TmuxNavigateRight<cr>
+" inoremap <silent> <C-\> <C-o>:TmuxNavigatePrevious<cr>

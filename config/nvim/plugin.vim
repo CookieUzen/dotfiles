@@ -87,7 +87,7 @@ if dein#load_state('~/.config/dein')
 	call dein#add('airblade/vim-gitgutter')
 	call dein#add('tpope/vim-fugitive')
 	call dein#add('lilydjwg/fcitx.vim')
-	call dein#add('kevinhwang91/vim-ibus-sw')
+	" call dein#add('kevinhwang91/vim-ibus-sw')
 
 	" Folders
 	call dein#add('scrooloose/nerdtree')

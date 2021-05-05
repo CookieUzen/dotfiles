@@ -9,7 +9,7 @@ endif
 "
 
 " Tabstop
-set tabstop=4 shiftwidth=4 expandtab
+set tabstop=4 shiftwidth=4 noexpandtab "expandtab
 
 " Syntax
 syntax on
@@ -44,6 +44,9 @@ set ignorecase
 
 " Conceal level
 set conceallevel=2
+
+" Latex
+map <F2> :! zathura "$(echo "%" \| cut -f 1 -d '.').pdf" & <CR><CR>
 
 " Source init.vim
 map <F3> :so ~/.config/nvim/init.vim <CR>

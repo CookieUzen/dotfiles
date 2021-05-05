@@ -38,7 +38,7 @@ if dein#load_state('~/.config/dein')
 
 	" Languages
 	call dein#add('vim-scripts/javacomplete')
-	call dein#add('deoplete-plugins/deoplete-jedi')
+	call dein#add('davidhalter/jedi.vim')
 	call dein#add('Plasticboy/vim-markdown' )
 	call dein#add('lervag/vimtex')
 	call dein#add('vim-scripts/c.vim')
@@ -56,6 +56,7 @@ if dein#load_state('~/.config/dein')
 
 	" Autocomplete
 	call dein#add('jiangmiao/auto-pairs')
+	call dein#add('deoplete-plugins/deoplete-jedi')
 	call dein#add('sirver/ultisnips')
 	call dein#add('honza/vim-snippets')
 	call dein#add('dkarter/bullets.vim')
@@ -85,7 +86,7 @@ if dein#load_state('~/.config/dein')
 	call dein#add('907th/vim-auto-save')
 	call dein#add('airblade/vim-gitgutter')
 	call dein#add('tpope/vim-fugitive')
-	" call dein#add('lilydjwg/fcitx.vim')
+	call dein#add('lilydjwg/fcitx.vim')
 	call dein#add('kevinhwang91/vim-ibus-sw')
 
 	" Folders
@@ -197,7 +198,7 @@ let g:lightline.component_type = {
       \ }
 
 " Lightline
-let g:lightline = { 'colorscheme': 'palenight' }
+let g:lightline = { 'colorscheme': 'gruvbox' }
 let g:lightline.active = { 'right': [[ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok' ]] }
 
 let g:lightline = {

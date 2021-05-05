@@ -38,6 +38,7 @@ if dein#load_state('~/.config/dein')
 
 	" Languages
 	call dein#add('vim-scripts/javacomplete')
+	call dein#add('davidhalter/jedi.vim')
 	call dein#add('Plasticboy/vim-markdown' )
 	call dein#add('lervag/vimtex')
 	call dein#add('vim-scripts/c.vim')
@@ -55,7 +56,7 @@ if dein#load_state('~/.config/dein')
 
 	" Autocomplete
 	call dein#add('jiangmiao/auto-pairs')
-	call dein#add('davidhalter/jedi.vim')
+	call dein#add('deoplete-plugins/deoplete-jedi')
 	call dein#add('sirver/ultisnips')
 	call dein#add('honza/vim-snippets')
 	call dein#add('dkarter/bullets.vim')
@@ -86,9 +87,11 @@ if dein#load_state('~/.config/dein')
 	call dein#add('airblade/vim-gitgutter')
 	call dein#add('tpope/vim-fugitive')
 	call dein#add('lilydjwg/fcitx.vim')
+	call dein#add('kevinhwang91/vim-ibus-sw')
 
 	" Folders
 	call dein#add('scrooloose/nerdtree')
+	" call dein#add('frazrepo/vim-rainbow')
 
 	call dein#end()
 	call dein#save_state()
@@ -158,12 +161,14 @@ inoremap <C-f> <Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" 
 nnoremap <C-f> : silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>
 
 " autopair
-let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', "`":"`", '```':'```', '"""':'"""', "'''":"'''", "``":"''"}
+let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', "`":"`", '```':'```', '"""':'"""', "'''":"'''", "``":"''", "$":"$", "$$":"$$", "_":"_", "__":"__"}
 let g:AutoPairsShortcutToggle = '<>'
+let g:AutoPairsMapCh = '<>'
 
 " autosave
 let g:auto_save = 1  " enable AutoSave on Vim startup
-let g:auto_save_events = ["InsertLeave", "TextChanged"]
+let g:updatetime = 500
+let g:auto_save_events = ["CursorHold"]
 
 " Palenight
 let g:palenight_terminal_italics=1
@@ -231,8 +236,8 @@ let g:bullets_enabled_file_types = [
 autocmd BufNewFile,BufRead *.ino let g:airline_section_x='%{MyStatusLine()}'
 
 " Tmux Navigator
-inoremap <silent> <C-h> <C-o>:TmuxNavigateLeft<cr>
-inoremap <silent> <C-j> <C-o>:TmuxNavigateDown<cr>
-inoremap <silent> <C-k> <C-o>:TmuxNavigateUp<cr>
-inoremap <silent> <C-l> <C-o>:TmuxNavigateRight<cr>
-inoremap <silent> <C-\> <C-o>:TmuxNavigatePrevious<cr>
+" inoremap <silent> <C-h> <C-o>:TmuxNavigateLeft<cr>
+" inoremap <silent> <C-j> <C-o>:TmuxNavigateDown<cr>
+" inoremap <silent> <C-k> <C-o>:TmuxNavigateUp<cr>
+" inoremap <silent> <C-l> <C-o>:TmuxNavigateRight<cr>
+" inoremap <silent> <C-\> <C-o>:TmuxNavigatePrevious<cr>

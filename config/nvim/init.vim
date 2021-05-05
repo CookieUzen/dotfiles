@@ -2,9 +2,11 @@
 source ~/.config/nvim/plugin.vim
 
 " Color
-set background=dark
-colo gruvbox
-" let g:palength_terminal_italics=1
+if (has("termguicolors"))
+  set termguicolors
+endif
+" set notermguicolors
+"
 
 " Tabstop
 set tabstop=4 shiftwidth=4 noexpandtab "expandtab
@@ -53,11 +55,6 @@ map <F3> :so ~/.config/nvim/init.vim <CR>
 " setlocal spell
 set spelllang=en_us
 
-" Transparent window
-highlight Normal ctermbg=none
-highlight NonText ctermbg=none
-hi Normal guibg=NONE ctermbg=NONE
-
 " Spell Fixing
 map <F8> [s 1z=
 
@@ -79,17 +76,9 @@ set nu
 set mouse=a
 
 " Macros
+" Word count
 map <F9> :! echo `detex "%" \| wc -w ` words <CR>
 " map <F10> :! dirname % \| xsel --clipboard --input <CR><CR>
-map <F10> : silent exec '! st sh -c "cd $(dirname "%"); zsh" ' <CR>
-" map <F10> : ! st sh -c 'echo $(pwd); zsh' 
-
-" termguicolors
-if (has("termguicolors"))
-  set termguicolors
-endif
-
-" set notermguicolors
 
 " foldmethod
 set foldmethod=syntax
@@ -104,8 +93,22 @@ set clipboard+=unnamedplus
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
 
-cmap yeet !pwd > "$HOME"/.dir
-cmap yoink !rm "$HOME"/.dir
-
 " Set Shell to Bash
 set shell=/bin/bash
+
+" Colorscheme
+set background=dark
+let g:gruvbox_italic=1
+colorscheme gruvbox
+
+" colo palenight
+" let g:palenight_terminal_italics=1
+
+" Transparent window
+" highlight Normal ctermbg=none
+" highlight NonText ctermbg=none
+hi Normal guibg=NONE ctermbg=NONE
+
+" Better bullet points
+imap <C-h> <esc><<A
+imap <C-l> <esc>>>A

@@ -193,7 +193,7 @@ let g:lightline.component_type = {
       \ }
 
 " Lightline
-let g:lightline = { 'colorscheme': 'palenight' }
+let g:lightline = { 'colorscheme': 'gruvbox' }
 let g:lightline.active = { 'right': [[ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok' ]] }
 
 let g:lightline = {

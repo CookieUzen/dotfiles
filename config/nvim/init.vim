@@ -3,11 +3,11 @@ source ~/.config/nvim/plugin.vim
 
 " Color
 set background=dark
-colo palenight
-let g:palength_terminal_italics=1
+colo gruvbox
+" let g:palength_terminal_italics=1
 
 " Tabstop
-set tabstop=4 shiftwidth=4 expandtab
+set tabstop=4 shiftwidth=4 noexpandtab "expandtab
 
 " Syntax
 syntax on

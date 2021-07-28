@@ -29,24 +29,37 @@ if dein#load_state('~/.config/dein')
 	call dein#add('ayu-theme/ayu-vim')
 	call dein#add('joshdick/onedark.vim')
 	call dein#add('reedes/vim-colors-pencil')
-	call dein#add('arcticicestudio/nord-vim')
+	" call dein#add('arcticicestudio/nord-vim')
+	call dein#add('shaunsingh/nord.nvim')
 
 	" Eye Candy
 	call dein#add('ap/vim-css-color')
 	call dein#add('ap/vim-buftabline')
 	call dein#add('itchyny/lightline.vim')
+	call dein#add('psliwka/vim-smoothie')
+
+	" Code
+	call dein#add('godlygeek/tabular')
+	call dein#add('junegunn/vim-easy-align')
+	call dein#add('tpope/vim-surround')
+	call dein#add('tpope/vim-repeat')
+	call dein#add('907th/vim-auto-save')
+	call dein#add('airblade/vim-gitgutter')
+	call dein#add('tpope/vim-fugitive')
+	" call dein#add('lilydjwg/fcitx.vim')
+	call dein#add('kevinhwang91/vim-ibus-sw')
 
 	" Languages
 	call dein#add('vim-scripts/javacomplete')
-	call dein#add('davidhalter/jedi.vim')
+	call dein#add('davidhalter/jedi-vim')
 	call dein#add('Plasticboy/vim-markdown' )
 	call dein#add('lervag/vimtex')
 	call dein#add('vim-scripts/c.vim')
 	call dein#add('stevearc/vim-arduino')
 	call dein#add('sirtaj/vim-openscad')
-	call dein#add('vim-pandoc/vim-pandoc')
-	call dein#add('vim-pandoc/vim-rmarkdown')
-	call dein#add('vim-pandoc/vim-pandoc-syntax')
+	" call dein#add('vim-pandoc/vim-pandoc')
+	" call dein#add('vim-pandoc/vim-rmarkdown')
+	" call dein#add('vim-pandoc/vim-pandoc-syntax')
 
 	" Error Checking
 	call dein#add('dense-analysis/ale')
@@ -60,6 +73,8 @@ if dein#load_state('~/.config/dein')
 	call dein#add('sirver/ultisnips')
 	call dein#add('honza/vim-snippets')
 	call dein#add('dkarter/bullets.vim')
+	" call dein#add('hrsh7th/vim-neco-calc')
+	" call dein#add('sk1418/howmuch')
 
 	" Clipboard/Undo
 	call dein#add('maxbrunsfeld/vim-yankstack')
@@ -77,17 +92,6 @@ if dein#load_state('~/.config/dein')
 	" Limelight/Goyo
 	call dein#add('junegunn/goyo.vim')
 	call dein#add('junegunn/limelight.vim')
-
-	" Code
-	call dein#add('godlygeek/tabular')
-	call dein#add('junegunn/vim-easy-align')
-	call dein#add('tpope/vim-surround')
-	call dein#add('tpope/vim-repeat')
-	call dein#add('907th/vim-auto-save')
-	call dein#add('airblade/vim-gitgutter')
-	call dein#add('tpope/vim-fugitive')
-	call dein#add('lilydjwg/fcitx.vim')
-	" call dein#add('kevinhwang91/vim-ibus-sw')
 
 	" Folders
 	call dein#add('scrooloose/nerdtree')
@@ -167,7 +171,7 @@ let g:AutoPairsMapCh = '<>'
 
 " autosave
 let g:auto_save = 1  " enable AutoSave on Vim startup
-let g:updatetime = 500
+let g:updatetime = 10
 let g:auto_save_events = ["CursorHold"]
 
 " Palenight
@@ -198,10 +202,8 @@ let g:lightline.component_type = {
       \ }
 
 " Lightline
-let g:lightline = { 'colorscheme': 'gruvbox' }
-let g:lightline.active = { 'right': [[ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok' ]] }
-
 let g:lightline = {
+      \ 'colorscheme': 'nord',
       \ 'active': {
       \  'right': [	[ 'lineinfo' ],
       \             [ 'percent' ],
@@ -241,3 +243,18 @@ autocmd BufNewFile,BufRead *.ino let g:airline_section_x='%{MyStatusLine()}'
 " inoremap <silent> <C-k> <C-o>:TmuxNavigateUp<cr>
 " inoremap <silent> <C-l> <C-o>:TmuxNavigateRight<cr>
 " inoremap <silent> <C-\> <C-o>:TmuxNavigatePrevious<cr>
+"
+" Write all buffers before navigating from Vim to tmux pane
+let g:tmux_navigator_save_on_switch = 2
+
+" Disable tmux navigator when zooming the Vim pane
+let g:tmux_navigator_disable_when_zoomed = 1
+
+" Nord
+let g:nord_italic = 1
+let g:nord_italic_comments = 1
+let g:nord_underline = 1
+
+" Markdown
+let g:vim_markdown_math = 1
+let g:vim_markdown_frontmatter = 1

@@ -86,8 +86,8 @@ if dein#load_state('~/.config/dein')
 	call dein#add('907th/vim-auto-save')
 	call dein#add('airblade/vim-gitgutter')
 	call dein#add('tpope/vim-fugitive')
-	call dein#add('lilydjwg/fcitx.vim')
-	call dein#add('kevinhwang91/vim-ibus-sw')
+	" call dein#add('lilydjwg/fcitx.vim')
+	" call dein#add('kevinhwang91/vim-ibus-sw')
 
 	" Folders
 	call dein#add('scrooloose/nerdtree')
@@ -161,7 +161,7 @@ inoremap <C-f> <Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" 
 nnoremap <C-f> : silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>
 
 " autopair
-let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', "`":"`", '```':'```', '"""':'"""', "'''":"'''", "``":"''", "$":"$", "$$":"$$", "_":"_", "__":"__"}
+let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', "`":"`", '```':'```', '"""':'"""', "'''":"'''", "``":"''", "$":"$", "$$":"$$"}
 let g:AutoPairsShortcutToggle = '<>'
 let g:AutoPairsMapCh = '<>'
 

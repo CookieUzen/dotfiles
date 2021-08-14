@@ -20,13 +20,13 @@ font pango:DejaVu Sans Mono 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec konsole
+bindsym $mod+Shift+Return exec alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-# bindsym $mod+space exec dmenu_run
+bindsym $mod+Return exec rofi -show run
 
 # change focus
 bindsym $mod+h focus left
@@ -191,9 +191,14 @@ bindsym $mod+minus scratchpad show
 
 # Personal Settings
 # for_window [class="Inkscape"] fullscreen enable
-bindsym $mod+Shift+v exec "$HOME/scripts/anywhere.sh"
+# bindsym $mod+Shift+v exec "$HOME/scripts/anywhere.sh"
+exec_always --no-startup-id picom -b --config ~/.config/compton/picom.conf
+
+exec_always bash ~/.fehbg
 
 # Plasma
+for_window [class="yakuake"] floating enable
+for_window [class="systemsettings"] floating enable
 for_window [title="Desktop — Plasma"] kill; floating enable; border none
 for_window [class="plasmashell"] floating enable;
 for_window [class="Plasma"] floating enable; border none
@@ -204,6 +209,5 @@ for_window [class="Kmix"] floating enable; border none
 for_window [class="Klipper"] floating enable; border none
 for_window [class="Plasmoidviewer"] floating enable; border none
 for_window [class="(?i)*nextcloud*"] floating disable
-# for_window [class="plasmashell" window_type="notification"] floating enable, border none, move right 700px, move down 450px
+for_window [class="plasmashell" window_type="notification"] border none, move right 700px, move down 450px
 no_focus [class="plasmashell" window_type="notification"] 
-

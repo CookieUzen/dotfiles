@@ -48,6 +48,7 @@ if dein#load_state('~/.config/dein')
 	call dein#add('tpope/vim-fugitive')
 	" call dein#add('lilydjwg/fcitx.vim')
 	call dein#add('kevinhwang91/vim-ibus-sw')
+	call dein#add('jupyter-vim/jupyter-vim')
 
 	" Languages
 	call dein#add('vim-scripts/javacomplete')
@@ -95,7 +96,7 @@ if dein#load_state('~/.config/dein')
 
 	" Folders
 	call dein#add('scrooloose/nerdtree')
-	" call dein#add('frazrepo/vim-rainbow')
+	call dein#add('frazrepo/vim-rainbow')
 
 	call dein#end()
 	call dein#save_state()
@@ -159,10 +160,6 @@ let g:ale_fixers = {
 " call deoplete#custom#option('sources', {
 " \	'_': 'ale',
 " \})
-
-" inkscape-figures
-inoremap <C-f> <Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>
-nnoremap <C-f> : silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>
 
 " autopair
 let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', "`":"`", '```':'```', '"""':'"""', "'''":"'''", "``":"''", "$":"$", "$$":"$$", "_":"_", "__":"__"}
@@ -258,3 +255,24 @@ let g:nord_underline = 1
 " Markdown
 let g:vim_markdown_math = 1
 let g:vim_markdown_frontmatter = 1
+
+" jupyter qtconsole
+
+" let g:jupyter_mapkeys = 0
+" " Run current file
+" nnoremap <buffer> <silent> <localleader>R :JupyterRunFile<CR>
+" nnoremap <buffer> <silent> <localleader>I :PythonImportThisFile<CR>
+" 
+" " Change to directory of current file
+" nnoremap <buffer> <silent> <localleader>d :JupyterCd %:p:h<CR>
+" 
+" " Send a selection of lines
+" nnoremap <buffer> <silent> <localleader>X :JupyterSendCell<CR>
+" nnoremap <buffer> <silent> <localleader>E :JupyterSendRange<CR>
+" nmap     <buffer> <silent> <localleader>e <Plug>JupyterRunTextObj
+" vmap     <buffer> <silent> <localleader>e <Plug>JupyterRunVisual
+" 
+" nnoremap <buffer> <silent> <localleader>U :JupyterUpdateShell<CR>
+" 
+" " Debugging maps
+" nnoremap <buffer> <silent> <localleader>b :PythonSetBreak<CR>

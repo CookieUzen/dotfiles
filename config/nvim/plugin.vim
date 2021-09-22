@@ -47,6 +47,7 @@ if dein#load_state('~/.config/dein')
 	call dein#add('vim-pandoc/vim-pandoc')
 	call dein#add('vim-pandoc/vim-rmarkdown')
 	call dein#add('vim-pandoc/vim-pandoc-syntax')
+	call dein#add('jupyter-vim/jupyter-vim')
 
 	" Error Checking
 	call dein#add('dense-analysis/ale')
@@ -86,7 +87,7 @@ if dein#load_state('~/.config/dein')
 	call dein#add('907th/vim-auto-save')
 	call dein#add('airblade/vim-gitgutter')
 	call dein#add('tpope/vim-fugitive')
-	" call dein#add('lilydjwg/fcitx.vim')
+	call dein#add('lilydjwg/fcitx.vim')
 	" call dein#add('kevinhwang91/vim-ibus-sw')
 
 	" Folders

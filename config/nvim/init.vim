@@ -9,7 +9,8 @@ endif
 "
 
 " Tabstop
-set tabstop=4 shiftwidth=4 noexpandtab "expandtab
+set tabstop=4 shiftwidth=4 noexpandtab "expandtab 
+" set expandtab
 
 " Syntax
 syntax on
@@ -77,7 +78,7 @@ set mouse=a
 
 " Macros
 " Word count
-map <F9> :! echo `detex "%" \| wc -w ` words <CR>
+map <F9> :! texcount "%" <CR>
 " map <F10> :! dirname % \| xsel --clipboard --input <CR><CR>
 
 " foldmethod

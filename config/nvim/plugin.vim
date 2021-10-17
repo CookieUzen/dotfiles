@@ -76,6 +76,7 @@ if dein#load_state('~/.config/dein')
 	call dein#add('dkarter/bullets.vim')
 	" call dein#add('hrsh7th/vim-neco-calc')
 	" call dein#add('sk1418/howmuch')
+	call dein#add('tbodt/deoplete-tabnine', { 'build': './install.sh' })
 
 	" Clipboard/Undo
 	call dein#add('maxbrunsfeld/vim-yankstack')
@@ -135,9 +136,9 @@ let g:limelight_priority = -1
 " Deoplete
 let g:deoplete#enable_at_startup = 1
 " let g:deoplete#enable_smart_case = 1
-"call deoplete#custom#var('omni', 'input_patterns', {
-"        \ 'tex': g:vimtex#re#deoplete
-"        \})
+call deoplete#custom#var('omni', 'input_patterns', {
+        \ 'tex': g:vimtex#re#deoplete
+        \})
 "inoremap <silent><expr> <C-n>
 "\ pumvisible() ? "\<C-SPACE>" :
 "\ <SID>check_back_space() ? "\<TAB>" :

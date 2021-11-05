@@ -99,7 +99,6 @@ set shell=/bin/bash
 
 " Colorscheme
 set background=dark
-let g:gruvbox_italic=1
 colorscheme nord
 
 " colo palenight

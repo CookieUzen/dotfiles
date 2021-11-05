@@ -37,9 +37,10 @@ if dein#load_state('~/.config/dein')
 	call dein#add('ap/vim-buftabline')
 	call dein#add('itchyny/lightline.vim')
 	call dein#add('psliwka/vim-smoothie')
+	call dein#add('nvim-treesitter/nvim-treesitter', {'hook_post_update': 'TSUpdate'})
 
 	" Code
-	call dein#add('godlygeek/tabular')
+	" call dein#add('godlygeek/tabular')
 	call dein#add('junegunn/vim-easy-align')
 	call dein#add('tpope/vim-surround')
 	call dein#add('tpope/vim-repeat')
@@ -47,17 +48,17 @@ if dein#load_state('~/.config/dein')
 	call dein#add('airblade/vim-gitgutter')
 	call dein#add('tpope/vim-fugitive')
 	" call dein#add('lilydjwg/fcitx.vim')
-	call dein#add('kevinhwang91/vim-ibus-sw')
+	" call dein#add('kevinhwang91/vim-ibus-sw')
 	call dein#add('jupyter-vim/jupyter-vim')
 
 	" Languages
 	call dein#add('vim-scripts/javacomplete')
 	call dein#add('davidhalter/jedi-vim')
-	call dein#add('Plasticboy/vim-markdown' )
+	call dein#add('Plasticboy/vim-markdown')
 	call dein#add('lervag/vimtex')
-	call dein#add('vim-scripts/c.vim')
-	call dein#add('stevearc/vim-arduino')
-	call dein#add('sirtaj/vim-openscad')
+	" call dein#add('vim-scripts/c.vim')
+	" call dein#add('stevearc/vim-arduino')
+	" call dein#add('sirtaj/vim-openscad')
 	" call dein#add('vim-pandoc/vim-pandoc')
 	" call dein#add('vim-pandoc/vim-rmarkdown')
 	" call dein#add('vim-pandoc/vim-pandoc-syntax')
@@ -77,6 +78,7 @@ if dein#load_state('~/.config/dein')
 	" call dein#add('hrsh7th/vim-neco-calc')
 	" call dein#add('sk1418/howmuch')
 	call dein#add('tbodt/deoplete-tabnine', { 'build': './install.sh' })
+	" call dein#add('github/copilot.vim')
 
 	" Clipboard/Undo
 	call dein#add('maxbrunsfeld/vim-yankstack')
@@ -277,3 +279,23 @@ let g:vim_markdown_frontmatter = 1
 " 
 " " Debugging maps
 " nnoremap <buffer> <silent> <localleader>b :PythonSetBreak<CR>
+
+" Gruvbox
+let g:gruvbox_italic=1
+
+" nvim treesitter
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  -- ignore_install = { "javascript" }, -- List of parsers to ignore installing
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+    -- disable = { "c", "rust" },  -- list of language that will be disabled
+    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+    -- Using this option may slow down your editor, and you may see some duplicate highlights.
+    -- Instead of true it can also be a list of languages
+    additional_vim_regex_highlighting = false,
+  },
+}
+EOF

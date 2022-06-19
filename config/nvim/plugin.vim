@@ -38,9 +38,11 @@ if dein#load_state('~/.config/dein')
 	call dein#add('itchyny/lightline.vim')
 	call dein#add('psliwka/vim-smoothie')
 	call dein#add('nvim-treesitter/nvim-treesitter', {'hook_post_update': 'TSUpdate'})
+	call dein#add('wellle/context.vim')
+	call dein#add('kristijanhusak/vim-carbon-now-sh')
 
 	" Code
-	" call dein#add('godlygeek/tabular')
+	call dein#add('godlygeek/tabular')
 	call dein#add('junegunn/vim-easy-align')
 	call dein#add('tpope/vim-surround')
 	call dein#add('tpope/vim-repeat')
@@ -58,7 +60,8 @@ if dein#load_state('~/.config/dein')
 	call dein#add('lervag/vimtex')
 	" call dein#add('vim-scripts/c.vim')
 	" call dein#add('stevearc/vim-arduino')
-	" call dein#add('sirtaj/vim-openscad')
+	" call dein#add('salkin-mada/openscad.nvim')
+	call dein#add('sirtaj/vim-openscad')
 	" call dein#add('vim-pandoc/vim-pandoc')
 	" call dein#add('vim-pandoc/vim-rmarkdown')
 	" call dein#add('vim-pandoc/vim-pandoc-syntax')
@@ -70,14 +73,14 @@ if dein#load_state('~/.config/dein')
 	" call dein#add('rhysd/vim-grammarous' )
 
 	" Autocomplete
-	call dein#add('jiangmiao/auto-pairs')
+	" call dein#add('jiangmiao/auto-pairs')
 	call dein#add('deoplete-plugins/deoplete-jedi')
 	call dein#add('sirver/ultisnips')
 	call dein#add('honza/vim-snippets')
 	call dein#add('dkarter/bullets.vim')
 	" call dein#add('hrsh7th/vim-neco-calc')
 	" call dein#add('sk1418/howmuch')
-	call dein#add('tbodt/deoplete-tabnine', { 'build': './install.sh' })
+	" call dein#add('tbodt/deoplete-tabnine', { 'build': './install.sh' })
 	" call dein#add('github/copilot.vim')
 
 	" Clipboard/Undo
@@ -165,7 +168,7 @@ let g:ale_fixers = {
 " \})
 
 " autopair
-let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', "`":"`", '```':'```', '"""':'"""', "'''":"'''", "``":"''", "$":"$", "$$":"$$", "_":"_", "__":"__"}
+let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', "`":"`", '```':'```', '"""':'"""', "'''":"'''", "``":"''"}
 let g:AutoPairsShortcutToggle = '<>'
 let g:AutoPairsMapCh = '<>'
 
@@ -283,19 +286,25 @@ let g:vim_markdown_frontmatter = 1
 " Gruvbox
 let g:gruvbox_italic=1
 
-" nvim treesitter
-lua <<EOF
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-  -- ignore_install = { "javascript" }, -- List of parsers to ignore installing
-  highlight = {
-    enable = true,              -- false will disable the whole extension
-    -- disable = { "c", "rust" },  -- list of language that will be disabled
-    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-    -- Using this option may slow down your editor, and you may see some duplicate highlights.
-    -- Instead of true it can also be a list of languages
-    additional_vim_regex_highlighting = false,
-  },
-}
-EOF
+"lua <<EOF
+"require'nvim-treesitter.configs'.setup {
+"  ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+"  -- ignore_install = { "javascript" }, -- List of parsers to ignore installing
+"  highlight = {
+"    enable = true,              -- false will disable the whole extension
+"    -- disable = { "latex" },  -- list of language that will be disabled
+"    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+"    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+"    -- Using this option may slow down your editor, and you may see some duplicate highlights.
+"    -- Instead of true it can also be a list of languages
+"	additional_vim_regex_highlighting = { "latex" },
+"  },
+"}
+"EOF
+
+" Openscad.nvim
+" let g:openscad_cheatsheet_toggle_key = '<Enter>'
+" let g:openscad_help_trig_key = '<A-h>'
+" let g:openscad_help_manual_trig_key = '<A-m>'
+" let g:openscad_exec_openscad_trig_key = '<A-o>'
+" let g:openscad_top_toggle = '<A-c>'

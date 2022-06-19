@@ -25,7 +25,7 @@ bindsym XF86AudioMicMute exec --no-startup-id qdbus org.kde.kglobalaccel /compon
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Shift+Return exec alacritty
+bindsym $mod+Shift+Return exec alacritty -e ~/scripts/tmux-attach.sh
 
 # kill focused window
 bindsym $mod+q kill
@@ -176,16 +176,26 @@ for_window [class="^.*"] border pixel $thick
 for_window [title="^.*"] border pixel $thick
 
 # Colors                border  backgr. text    indicator child_border
-client.focused          #4c7899 #285577 #ffffff #2e9ef4   #285577
-client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
-client.unfocused        #333333 #222222 #888888 #292d2e   #222222
-client.urgent           #2f343a #900000 #ffffff #900000   #900000
-client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+# client.focused          #4c7899 #285577 #ffffff #2e9ef4   #285577
+# client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
+# client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+# client.urgent           #2f343a #900000 #ffffff #900000   #900000
+# client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+# 
+# client.background       #ffffff
 
-client.background       #ffffff
+# Nord
+## class                 border  bground text    indicator child_border
+client.focused          #81A1C1 #81A1C1 #E5E9F0 #81A1C1   #88c0d0
+client.focused_inactive #3B4252 #3B4252 #E5E9F0 #3B4252   #3B4252
+client.unfocused        #373E4D #373E4D #AEB3BB #373E4D   #3B4252
+client.urgent           #BF616A #BF616A #E5E9F0 #BF616A   #BF616A
+client.placeholder      #B48EAD #B48EAD #E5E9F0 #B48EAD   #B48EAD
 
+client.background       #E5E9F0
 # Additional Settings
 workspace_auto_back_and_forth yes
+# hide_edge_borders both
 
 # lightlocker
 # bindsym $mod+0 exec --no-startup-id light-locker-command -l
@@ -217,3 +227,5 @@ for_window [class="(?i)*nextcloud*"] floating disable
 for_window [class="plasmashell" window_type="notification"] border none, move right 700px, move down 450px
 no_focus [class="plasmashell" window_type="notification"]
 
+# Scratchpad
+bindsym $mod+Shift+s exec ~/sync.sh

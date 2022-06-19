@@ -105,10 +105,20 @@ colorscheme nord
 " let g:palenight_terminal_italics=1
 
 " Transparent window
-" highlight Normal ctermbg=none
-" highlight NonText ctermbg=none
+highlight Normal guibg=NONE ctermbg=NONE
+highlight NonText guibg=NONE ctermbg=NONE
+
 hi Normal guibg=NONE ctermbg=NONE
 
 " Better bullet points
 imap <C-h> <esc><<A
 imap <C-l> <esc>>>A
+
+" Autoclosing
+inoremap " ""<left>
+inoremap ' ''<left>
+inoremap ( ()<left>
+inoremap [ []<left>
+inoremap { {}<left>
+inoremap {<CR> {<CR>}<ESC>O
+inoremap {;<CR> {<CR>};<ESC>O

@@ -166,11 +166,11 @@ bindsym KP_Left exec playerctl previous
 # exec_always --no-startup-id bash "$HOME"/scripts/startup.sh
 
 # Gaps
-gaps inner 10
-gaps outer 20
+gaps inner 30
+gaps outer 30
 
 # Border
-set $thick 5
+set $thick 6
 
 for_window [class="^.*"] border pixel $thick
 for_window [title="^.*"] border pixel $thick
@@ -206,12 +206,12 @@ bindsym $mod+minus scratchpad show
 
 # Personal Settings
 # for_window [class="Inkscape"] fullscreen enable
-exec_always --no-startup-id picom -b --config ~/.config/compton/picom.conf
+exec_always --no-startup-id picom -b --config ~/.config/compton/picom.conf --experimental-backends
 exec_always bash ~/.fehbg
 
 # Plasma compatibility improvements
-for_window [window_role="pop-up"] floating enable
-for_window [window_role="task_dialog"] floating enable
+for_window [window_role="pop-up"] floating enable; border none
+for_window [window_role="task_dialog"] floating enable; border none
 
 for_window [class="yakuake"] floating enable
 # for_window [class="systemsettings"] floating enable
@@ -219,13 +219,14 @@ for_window [class="plasmashell"] floating enable;
 for_window [class="Plasma"] floating enable; border none
 for_window [title="plasma-desktop"] floating enable; border none
 for_window [title="win7"] floating enable; border none
-for_window [class="krunner"] floating enable; border none
+for_window [class="KRunner"] floating enable; border none
 for_window [class="Kmix"] floating enable; border none
 for_window [class="Klipper"] floating enable; border none
 for_window [class="Plasmoidviewer"] floating enable; border none
 for_window [class="(?i)*nextcloud*"] floating disable
 for_window [class="plasmashell" window_type="notification"] border none, move right 700px, move down 450px
 no_focus [class="plasmashell" window_type="notification"]
+for_window [title="Desktop — Plasma"] kill; floating enable; border none
 
 # Scratchpad
 bindsym $mod+Shift+s exec ~/sync.sh

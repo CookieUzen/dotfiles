@@ -13,5 +13,3 @@ starship init fish | source
 thefuck --alias | source
 
 fish_add_path ~/.gem/ruby/3.0.0/bin ~/go/bin ~/.cargo/bin ~/.gem/ruby/2.7.0/bin ~/.local/bin ~/.bin
-rvm default
-rvm default

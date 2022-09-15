@@ -55,6 +55,7 @@ vim.opt.clipboard = "unnamedplus"
 -- Transparent Background
 vim.cmd("highlight Normal guibg=NONE ctermbg=NONE")
 vim.cmd("highlight NonText guibg=NONE ctermbg=NONE")
+vim.cmd("highlight SignColumn guibg=NONE ctermbg=NONE")
 
 -- Easier Indenting
 -- imap('<C-h>', '<C-O> <<')

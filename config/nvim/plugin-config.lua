@@ -1,5 +1,5 @@
 -- Undotree
-vim.opt.undodir = '$HOME/.undodir'
+vim.opt.undodir = os.getenv("HOME").."/.undodir"
 vim.opt.undofile = true
 
 -- Ultisnips
@@ -54,3 +54,5 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 
+-- Airline
+vim.cmd("let g:airline#extensions#tabline#enabled = 1")

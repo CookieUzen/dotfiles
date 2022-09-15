@@ -46,7 +46,7 @@ return require('packer').startup(function(use)
 	use 'tpope/vim-fugitive'
 	use {
 		'SirVer/ultisnips',
-		requires = {{'honza/vim-snippets', opt = true}}
+		requires = {{'honza/vim-snippets'}, {'quangnguyen30192/cmp-nvim-ultisnips'}}
 	}
 	use 'dkarter/bullets.vim'
 	use 'jiangmiao/auto-pairs'
@@ -63,4 +63,17 @@ return require('packer').startup(function(use)
 	use 'unblevable/quick-scope'
 	use 'mhinz/vim-startify'
 	use 'scrooloose/nerdtree'
+
+	-- LSP + Autocomplete
+	use 'neovim/nvim-lspconfig'
+	use {
+		'hrsh7th/nvim-cmp',
+		requires = {
+			{'hrsh7th/cmp-nvim-lsp'},
+			{'hrsh7th/cmp-buffer'},
+			{'hrsh7th/cmp-path'},
+			{'hrsh7th/cmp-cmdline'},
+			{'dmitmel/cmp-cmdline-history'}
+		}
+	}
 end)

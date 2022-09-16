@@ -76,4 +76,12 @@ return require('packer').startup(function(use)
 			{'dmitmel/cmp-cmdline-history'}
 		}
 	}
+	use {
+		'hrsh7th/vim-vsnip',
+		requires = {
+			{'hrsh7th/cmp-vsnip'},
+			{'hrsh7th/vim-vsnip-integ'}, 
+			{'rafamadriz/friendly-snippets'}, 
+		}
+	}
 end)

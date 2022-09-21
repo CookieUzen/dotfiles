@@ -3,7 +3,7 @@
 
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod1
+set $mod Mod4
 
 font pango:DejaVu Sans Mono 10
 
@@ -216,10 +216,10 @@ for_window [window_role="task_dialog"] floating enable; border none
 for_window [class="yakuake"] floating enable
 # for_window [class="systemsettings"] floating enable
 for_window [class="plasmashell"] floating enable;
-for_window [class="Plasma"] floating enable; border none
-for_window [title="plasma-desktop"] floating enable; border none
+for_window [title="Plasma"] floating enable; border none
+for_window [title="plasma-desktop"] floating enable; border none; focus none
 for_window [title="win7"] floating enable; border none
-for_window [class="KRunner"] floating enable; border none
+for_window [title="KRunner"] floating enable; border none
 for_window [class="Kmix"] floating enable; border none
 for_window [class="Klipper"] floating enable; border none
 for_window [class="Plasmoidviewer"] floating enable; border none

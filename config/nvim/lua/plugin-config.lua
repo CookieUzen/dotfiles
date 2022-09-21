@@ -60,30 +60,6 @@ vim.cmd("let g:airline#extensions#tabline#enabled = 1")
 -- lspconfig
 -- require'lspconfig'.pyright.setup{}
 
--- Add additional capabilities supported by nvim-cmp
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
-
-local lspconfig = require('lspconfig')
-
--- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = { 'pyright' , 'jdtls', 'texlab'}
-for _, lsp in ipairs(servers) do
-	lspconfig[lsp].setup {
-		-- on_attach = my_custom_on_attach,
-		capabilities = capabilities,
-	}
-end
-
-lspconfig['clangd'].setup{
-	cmd = {
-		"clangd",
-		"--background-index",
-		"--suggest-missing-includes"
-	},
-	capabilities = capabilities,
-}
-
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap=true, silent=true }
@@ -122,10 +98,32 @@ local lsp_flags = {
 	-- This is the default in Nvim 0.7+
 	debounce_text_changes = 150,
 }
-require('lspconfig')['pyright'].setup{
+
+-- Add additional capabilities supported by nvim-cmp
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+
+local lspconfig = require('lspconfig')
+
+-- Enable some language servers with the additional completion capabilities offered by nvim-cmp
+local servers = { 'pyright' , 'jdtls', 'texlab'}
+for _, lsp in ipairs(servers) do
+	lspconfig[lsp].setup {
+		on_attach = on_attach,
+		capabilities = capabilities,
+	}
+end
+
+lspconfig['clangd'].setup{
+	cmd = {
+		"clangd",
+		"--background-index",
+		"--suggest-missing-includes"
+	},
 	on_attach = on_attach,
-	flags = lsp_flags,
+	capabilities = capabilities,
 }
+
 
 --- nvim-cmp
 -- Set up nvim-cmp.
@@ -135,15 +133,15 @@ cmp.setup({
 	snippet = {
 		-- REQUIRED - you must specify a snippet engine
 		expand = function(args)
-			vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+			-- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
 			-- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
 			-- require('snippy').expand_snippet(args.body) -- For `snippy` users.
-			-- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+			vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
 		end,
 	},
 	window = {
-		-- completion = cmp.config.window.bordered(),
-		-- documentation = cmp.config.window.bordered(),
+		completion = cmp.config.window.bordered(),
+		documentation = cmp.config.window.bordered(),
 	},
 	mapping = cmp.mapping.preset.insert({
 		['<C-b>'] = cmp.mapping.scroll_docs(-4),
@@ -154,9 +152,9 @@ cmp.setup({
 	}),
 	sources = cmp.config.sources({
 		{ name = 'nvim_lsp' },
-		{ name = 'vsnip' }, -- For vsnip users.
+		-- { name = 'vsnip' }, -- For vsnip users.
 		-- { name = 'luasnip' }, -- For luasnip users.
-		-- { name = 'ultisnips' }, -- For ultisnips users.
+		{ name = 'ultisnips' }, -- For ultisnips users.
 		-- { name = 'snippy' }, -- For snippy users.
 	}, {
 		{ name = 'buffer' },

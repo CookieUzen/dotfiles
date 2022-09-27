@@ -24,6 +24,7 @@ return require('packer').startup(function(use)
 	use 'morhetz/gruvbox'
 	use 'arcticicestudio/nord-vim'
 	-- use 'shaunsingh/nord.nvim'
+	use 'lilydjwg/colorizer'
 	
 	-- Eye Candy
 	-- use 'vim-buftabline'
@@ -57,6 +58,9 @@ return require('packer').startup(function(use)
 	
 	-- Tmux
 	use 'christoomey/vim-tmux-navigator'
+
+	-- LaTeX
+	use 'lervag/vimtex'
 
 	-- Buffers
 	use 'majutsushi/tagbar'

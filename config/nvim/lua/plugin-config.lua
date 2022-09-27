@@ -6,7 +6,7 @@ vim.opt.undofile = true
 vim.g.UltiSnipsExpandTrigger = "<tab>"
 vim.g.UltiSnipsJumpForwardTrigger = "<C-j>"
 vim.g.UltiSnipsJumpBackwardTrigger = "<C-k>"
-vim.g.UltiSnipsSnippetDirectories = "snip"
+vim.g.UltiSnipsSnippetDirectories = {"snip"}
 
 -- Autopair
 vim.g.AutoPairsShortcutToggle = "<>"
@@ -44,7 +44,7 @@ require'nvim-treesitter.configs'.setup {
 
 	highlight = {
 		enable = true,
-		-- disable = { "c", "rust" },
+		disable = { "tex", "latex" },
 
 		-- Setting this to true will run `:h syntax` and tree-sitter at the same time.
 		-- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
@@ -187,3 +187,6 @@ cmp.setup.cmdline(':', {
 		{ name = 'cmdline_history' }
 	})
 })
+
+-- Vimtex
+vim.g.vimtex_view_method = 'zathura'

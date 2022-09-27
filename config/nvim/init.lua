@@ -1,6 +1,9 @@
 -- Colorscheme
 vim.cmd("colorscheme nord")
 
+-- Indent
+vim.cmd("filetype plugin indent on")
+
 -- Mapping 
 function map(mode, shortcut, command)
   vim.api.nvim_set_keymap(mode, shortcut, command, { noremap = true, silent = true })

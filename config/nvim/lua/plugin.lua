@@ -35,7 +35,7 @@ return require('packer').startup(function(use)
 	}
 	use 'psliwka/vim-smoothie'
 	use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
-	-- use 'wellle/context.vim'
+	use 'wellle/context.vim'
 	
 	-- Editing
 	use 'godlygeek/tabular'
@@ -88,4 +88,5 @@ return require('packer').startup(function(use)
 			{'rafamadriz/friendly-snippets'}, 
 		}
 	}
+	use 'github/copilot.vim'
 end)

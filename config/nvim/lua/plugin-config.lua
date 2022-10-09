@@ -190,3 +190,6 @@ cmp.setup.cmdline(':', {
 
 -- Vimtex
 vim.g.vimtex_view_method = 'zathura'
+
+-- Copilot
+vim.g.copilot_node_command = '/home/uzen/.nvm/versions/node/v16.17.1/bin/node'

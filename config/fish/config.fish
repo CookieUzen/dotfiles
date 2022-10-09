@@ -10,6 +10,6 @@ fish_vi_key_bindings
 
 # /opt/shell-color-scripts/colorscript.sh -r 
 starship init fish | source
-thefuck --alias | source
+# thefuck --alias | source
 
 fish_add_path ~/.gem/ruby/3.0.0/bin ~/go/bin ~/.cargo/bin ~/.gem/ruby/2.7.0/bin ~/.local/bin ~/.bin

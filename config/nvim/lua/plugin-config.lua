@@ -193,3 +193,16 @@ vim.g.vimtex_view_method = 'zathura'
 
 -- Copilot
 vim.g.copilot_node_command = '/home/uzen/.nvm/versions/node/v16.17.1/bin/node'
+map('i', '<leader>cp', ':Copilot<CR>')
+map('i', '<C-{>', '<Plug>(copilot-previous)')
+map('i', '<C-}>', '<Plug>(copilot-next)')
+
+-- Magma
+vim.cmd("nnoremap <silent><expr> <LocalLeader>r  :MagmaEvaluateOperator<CR>")
+vim.cmd("nnoremap <silent>       <LocalLeader>rr :MagmaEvaluateLine<CR>")
+vim.cmd("xnoremap <silent>       <LocalLeader>r  :<C-u>MagmaEvaluateVisual<CR>")
+vim.cmd("nnoremap <silent>       <LocalLeader>rc :MagmaReevaluateCell<CR>")
+vim.cmd("nnoremap <silent>       <LocalLeader>rd :MagmaDelete<CR>")
+vim.cmd("nnoremap <silent>       <LocalLeader>ro :MagmaShowOutput<CR>")
+
+vim.g.magma_automatically_open_output = 'v:false'

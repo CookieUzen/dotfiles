@@ -25,6 +25,7 @@ return require('packer').startup(function(use)
 	use 'arcticicestudio/nord-vim'
 	-- use 'shaunsingh/nord.nvim'
 	use 'lilydjwg/colorizer'
+	use 'doki-theme/doki-theme-vim'
 	
 	-- Eye Candy
 	-- use 'vim-buftabline'
@@ -89,4 +90,5 @@ return require('packer').startup(function(use)
 		}
 	}
 	use 'github/copilot.vim'
+	use { 'dccsillag/magma-nvim', run = ':UpdateRemotePlugins' }
 end)

@@ -1,6 +1,5 @@
--- Colorscheme
-vim.cmd("colorscheme nord")
-
+-- Syntax
+vim.opt.syntax = "on"
 -- Indent
 vim.cmd("filetype plugin indent on")
 
@@ -70,3 +69,7 @@ vim.opt.hidden = true
 -- Packer
 require('plugin')
 require('plugin-config')
+
+-- Colorscheme
+vim.cmd("colorscheme nord")
+

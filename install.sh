@@ -5,8 +5,9 @@ dotfiles="$HOME/dotfiles"
 
 # Set up .config folder with symlink
 for folder in "$dotfiles"/config/*; do
-	mkdir -p ~/.config/"$folder"
-	ln -s "$dotfiles"/config/"$folder"/* ~/.config/"$folder"/
+        folder=$(basename $folder)
+        mkdir -p ~/.config/"$folder"
+        ln -s "$dotfiles"/config/"$folder"/* ~/.config/"$folder"/
 done
 
 # Setting up scripts folder

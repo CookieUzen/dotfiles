@@ -100,8 +100,9 @@ local lsp_flags = {
 }
 
 -- Add additional capabilities supported by nvim-cmp
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+-- local capabilities = vim.lsp.protocol.make_client_capabilities()
+-- capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 local lspconfig = require('lspconfig')
 
@@ -206,3 +207,6 @@ vim.cmd("nnoremap <silent>       <LocalLeader>rd :MagmaDelete<CR>")
 vim.cmd("nnoremap <silent>       <LocalLeader>ro :MagmaShowOutput<CR>")
 
 vim.g.magma_automatically_open_output = 'v:false'
+
+-- Jupytext
+vim.g.jupytext_fmt = 'py:percent'

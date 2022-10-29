@@ -1,8 +1,3 @@
--- Syntax
-vim.opt.syntax = "on"
--- Indent
-vim.cmd("filetype plugin indent on")
-
 -- Mapping 
 function map(mode, shortcut, command)
   vim.api.nvim_set_keymap(mode, shortcut, command, { noremap = true, silent = true })
@@ -15,6 +10,19 @@ end
 function imap(shortcut, command)
   map('i', shortcut, command)
 end
+
+-- Packer
+require('plugin')
+require('plugin-config')
+
+-- Colorscheme
+vim.cmd("colorscheme nord")
+
+-- Syntax
+vim.opt.syntax = "on"
+
+-- Indent
+vim.cmd("filetype plugin indent on")
 
 -- Source init
 nmap('<F3>', ':so ~/.config/nvim/init.lua<CR>')
@@ -65,11 +73,3 @@ vim.cmd("highlight SignColumn guibg=NONE ctermbg=NONE")
 
 -- Buffer Management
 vim.opt.hidden = true
-
--- Packer
-require('plugin')
-require('plugin-config')
-
--- Colorscheme
-vim.cmd("colorscheme nord")
-

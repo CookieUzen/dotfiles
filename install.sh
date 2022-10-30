@@ -1,4 +1,4 @@
-#/bin/bash
+#/bin/sh
 
 # Change this variable if the folder is placed in another location
 # dotfiles="$HOME/dotfiles"

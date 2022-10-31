@@ -13,4 +13,6 @@ ln -s "$dotfiles"/config/* .
 # Setting up scripts folder
 ln -s "$dotfiles/scripts" ~/
 
-# Install
+# Install neovim plugins
+pip install neovim
+nvim +PackerSync +qall

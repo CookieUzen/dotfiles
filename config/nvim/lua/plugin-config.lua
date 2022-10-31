@@ -21,7 +21,6 @@ vim.g.auto_save_events = {"CursorHold"}
 vim.g.qs_highlight_on_keys = {'f', 'F', 't', 'T'}
 
 -- Yankstack
-vim.cmd('call yankstack#setup()')
 nmap('Y', 'y$')
 
 -- EasyAlign

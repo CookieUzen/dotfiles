@@ -57,7 +57,10 @@ return require('packer').startup(function(use)
 	use 'jiangmiao/auto-pairs'
 
 	-- Clipboard
-	use 'maxbrunsfeld/vim-yankstack'
+    use {
+        'maxbrunsfeld/vim-yankstack',
+        run = function() vim.fn['yankstack#setup']() end,
+    }
 	use 'mbbill/undotree'
 	
 	-- Tmux

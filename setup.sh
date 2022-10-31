@@ -15,4 +15,4 @@ ln -s "$dotfiles/scripts" ~/
 
 # Install neovim plugins
 pip install neovim
-nvim +PackerInstall +qall
+nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'

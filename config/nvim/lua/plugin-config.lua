@@ -1,3 +1,6 @@
+-- masno
+require("mason").setup()
+
 -- Undotree
 vim.opt.undodir = os.getenv("HOME").."/.undodir"
 vim.opt.undofile = true
@@ -114,6 +117,13 @@ for _, lsp in ipairs(servers) do
 	}
 end
 
+require'lspconfig'.typst_lsp.setup{
+	settings = {
+		exportPdf = "onType" -- Choose onType, onSave or never.
+        -- serverPath = "" -- Normally, there is no need to uncomment it.
+	}
+}
+
 lspconfig['clangd'].setup{
 	cmd = {
 		"clangd",
@@ -192,7 +202,7 @@ cmp.setup.cmdline(':', {
 vim.g.vimtex_view_method = 'zathura'
 
 -- Copilot
-vim.g.copilot_node_command = '/home/uzen/.nvm/versions/node/v16.17.1/bin/node'
+vim.g.copilot_node_command = '/home/uzen/.nvm/versions/node/v20.3.1/bin/node'
 map('i', '<leader>cp', ':Copilot<CR>')
 map('i', '<C-{>', '<Plug>(copilot-previous)')
 map('i', '<C-}>', '<Plug>(copilot-next)')

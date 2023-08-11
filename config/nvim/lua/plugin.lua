@@ -30,6 +30,8 @@ return require('packer').startup(function(use)
 	-- Eye Candy
 	-- use 'vim-buftabline'
 	-- use 'itchyny/lightline.vim'
+	use "folke/twilight.nvim"
+	use "folke/zen-mode.nvim"
 	use {
 		'vim-airline/vim-airline',
 		requires = {{'vim-airline/vim-airline-themes'}}
@@ -39,7 +41,8 @@ return require('packer').startup(function(use)
         'nvim-treesitter/nvim-treesitter',
         run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
     }
-	use 'wellle/context.vim'
+	-- use 'wellle/context.vim'
+	use 'nvim-treesitter/nvim-treesitter-context'
 	
 	-- Editing
 	use 'godlygeek/tabular'
@@ -68,6 +71,9 @@ return require('packer').startup(function(use)
 
 	-- LaTeX
 	use 'lervag/vimtex'
+
+	-- Typst
+	use {'kaarmu/typst.vim', ft = {'typst'}}
 
 	-- Buffers
 	use 'majutsushi/tagbar'
@@ -98,4 +104,10 @@ return require('packer').startup(function(use)
 	use 'github/copilot.vim'
 	use 'jupyter-vim/jupyter-vim'
 	use 'goerz/jupytext.vim'
+	use {
+		"williamboman/mason.nvim",
+		"williamboman/mason-lspconfig.nvim",
+		"neovim/nvim-lspconfig",
+	}
+	--	use {'Vigemus/iron.nvim'}
 end)

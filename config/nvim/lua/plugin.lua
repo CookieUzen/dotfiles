@@ -80,6 +80,7 @@ return require('packer').startup(function(use)
 	use 'unblevable/quick-scope'
 	use 'mhinz/vim-startify'
 	use 'scrooloose/nerdtree'
+	use 'jeetsukumaran/vim-buffergator'
 
 	-- LSP + Autocomplete
 	use 'neovim/nvim-lspconfig'

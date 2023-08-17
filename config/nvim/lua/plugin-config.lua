@@ -39,7 +39,7 @@ vim.g.tmux_navigator_disable_when_zoomed = 1
 
 -- Treesitter
 require'nvim-treesitter.configs'.setup {
-	ensure_installed = { "c", "lua", "java", "python" },
+	ensure_installed = { "c", "lua", "java", "python", "go" },
 	sync_install = false,
 	auto_install = true,
 	-- ignore_install = { "javascript" },
@@ -109,7 +109,7 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local lspconfig = require('lspconfig')
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = { 'pyright' , 'jdtls', 'texlab'}
+local servers = { 'pyright' , 'jdtls', 'texlab', 'gopls' }
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup {
 		on_attach = on_attach,

@@ -1,5 +1,6 @@
 -- masno
 require("mason").setup()
+require("mason-lspconfig").setup()
 
 -- Undotree
 vim.opt.undodir = os.getenv("HOME").."/.undodir"
@@ -96,6 +97,10 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
 end
 
+vim.keymap.set('n', '<leader>do', '<cmd>lua vim.diagnostic.open_float()<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>d[', '<cmd>lua vim.diagnostic.goto_prev()<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>d]', '<cmd>lua vim.diagnostic.goto_next()<CR>', { noremap = true, silent = true })
+
 local lsp_flags = {
 	-- This is the default in Nvim 0.7+
 	debounce_text_changes = 150,
@@ -106,33 +111,55 @@ local lsp_flags = {
 -- capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-local lspconfig = require('lspconfig')
-
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = { 'pyright' , 'jdtls', 'texlab', 'gopls' }
-for _, lsp in ipairs(servers) do
-	lspconfig[lsp].setup {
-		on_attach = on_attach,
-		capabilities = capabilities,
-	}
-end
-
-require'lspconfig'.typst_lsp.setup{
-	settings = {
-		exportPdf = "onType" -- Choose onType, onSave or never.
-        -- serverPath = "" -- Normally, there is no need to uncomment it.
-	}
+require("mason-lspconfig").setup_handlers {
+	-- The first entry (without a key) will be the default handler
+	-- and will be called for each installed server that doesn't have
+	-- a dedicated handler.
+	function (server_name) -- default handler (optional)
+		require("lspconfig")[server_name].setup {
+			on_attach = on_attach,
+			capabilities = capabilities,
+		}
+	end,
+	-- Next, you can provide a dedicated handler for specific servers.
+	-- For example, a handler override for the `rust_analyzer`:
+	["typst_lsp"] = function ()
+		require'lspconfig'.typst_lsp.setup{
+			settings = {
+				exportPdf = "onSave" -- Choose onType, onSave or never.
+		        -- serverPath = "" -- Normally, there is no need to uncomment it.
+			}
+		}
+	end
 }
 
-lspconfig['clangd'].setup{
-	cmd = {
-		"clangd",
-		"--background-index",
-		"--suggest-missing-includes"
-	},
-	on_attach = on_attach,
-	capabilities = capabilities,
-}
+
+-- local lspconfig = require('lspconfig')
+-- local servers = { 'pyright' , 'jdtls', 'texlab', 'gopls' }
+-- for _, lsp in ipairs(servers) do
+-- 	lspconfig[lsp].setup {
+-- 		on_attach = on_attach,
+-- 		capabilities = capabilities,
+-- 	}
+-- end
+
+-- require'lspconfig'.typst_lsp.setup{
+-- 	settings = {
+-- 		exportPdf = "onType" -- Choose onType, onSave or never.
+--         -- serverPath = "" -- Normally, there is no need to uncomment it.
+-- 	}
+-- }
+
+-- lspconfig['clangd'].setup{
+-- 	cmd = {
+-- 		"clangd",
+-- 		"--background-index",
+-- 		"--suggest-missing-includes"
+-- 	},
+-- 	on_attach = on_attach,
+-- 	capabilities = capabilities,
+-- }
 
 
 --- nvim-cmp

@@ -135,32 +135,31 @@ require("mason-lspconfig").setup_handlers {
 }
 
 
--- local lspconfig = require('lspconfig')
--- local servers = { 'pyright' , 'jdtls', 'texlab', 'gopls' }
--- for _, lsp in ipairs(servers) do
--- 	lspconfig[lsp].setup {
--- 		on_attach = on_attach,
--- 		capabilities = capabilities,
--- 	}
--- end
+local lspconfig = require('lspconfig')
+local servers = { 'pyright' , 'jdtls', 'texlab', 'gopls'}
+for _, lsp in ipairs(servers) do
+	lspconfig[lsp].setup {
+		on_attach = on_attach,
+		capabilities = capabilities,
+	}
+end
 
--- require'lspconfig'.typst_lsp.setup{
--- 	settings = {
--- 		exportPdf = "onType" -- Choose onType, onSave or never.
---         -- serverPath = "" -- Normally, there is no need to uncomment it.
--- 	}
--- }
+require'lspconfig'.typst_lsp.setup{
+	settings = {
+		exportPdf = "onType" -- Choose onType, onSave or never.
+        -- serverPath = "" -- Normally, there is no need to uncomment it.
+	}
+}
 
--- lspconfig['clangd'].setup{
--- 	cmd = {
--- 		"clangd",
--- 		"--background-index",
--- 		"--suggest-missing-includes"
--- 	},
--- 	on_attach = on_attach,
--- 	capabilities = capabilities,
--- }
-
+lspconfig['clangd'].setup{
+	cmd = {
+		"clangd",
+		"--background-index",
+		"--suggest-missing-includes"
+	},
+	on_attach = on_attach,
+	capabilities = capabilities,
+}
 
 --- nvim-cmp
 -- Set up nvim-cmp.
@@ -188,14 +187,15 @@ cmp.setup({
 		['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 	}),
 	sources = cmp.config.sources({
+		{ name = "copilot"  },
 		{ name = 'nvim_lsp' },
 		-- { name = 'vsnip' }, -- For vsnip users.
 		-- { name = 'luasnip' }, -- For luasnip users.
 		{ name = 'ultisnips' }, -- For ultisnips users.
 		-- { name = 'snippy' }, -- For snippy users.
 	}, {
-		{ name = 'buffer' },
-		{ name = 'path' }
+		{ name = 'path' },
+		{ name = 'buffer' }
 	})
 })
 
@@ -229,7 +229,7 @@ cmp.setup.cmdline(':', {
 vim.g.vimtex_view_method = 'zathura'
 
 -- Copilot
-vim.g.copilot_node_command = '/home/uzen/.nvm/versions/node/v20.3.1/bin/node'
+-- vim.g.copilot_node_command = '/home/uzen/.nvm/versions/node/v20.3.1/bin/node'
 map('i', '<leader>cp', ':Copilot<CR>')
 map('i', '<C-{>', '<Plug>(copilot-previous)')
 map('i', '<C-}>', '<Plug>(copilot-next)')
@@ -246,3 +246,10 @@ vim.g.magma_automatically_open_output = 'v:false'
 
 -- Jupytext
 vim.g.jupytext_fmt = 'py:percent'
+
+-- TODO:
+-- show keybindings plugin
+-- copilot.lua
+
+-- copilot-cmp.lua
+-- copilotchat

@@ -60,7 +60,7 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 
 -- Clipboard
-vim.opt.clipboard = "unnamedplus"
+-- vim.opt.clipboard = "unnamedplus"
 
 -- Transparent Background
 vim.cmd("highlight Normal guibg=NONE ctermbg=NONE")

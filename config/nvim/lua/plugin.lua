@@ -102,13 +102,42 @@ return require('packer').startup(function(use)
 			{'rafamadriz/friendly-snippets'}, 
 		}
 	}
-	use 'github/copilot.vim'
+	-- use 'github/copilot.vim'
+	use {
+	  "zbirenbaum/copilot.lua",
+	  cmd = "Copilot",
+	  event = "InsertEnter",
+	  config = function()
+		  require("copilot").setup({
+			    suggestion = { enabled = false },
+				panel = { enabled = false },
+		  })
+	  end,
+	}
+	use {
+	  "zbirenbaum/copilot-cmp",
+	  after = { "copilot.lua" },
+	  config = function ()
+		require("copilot_cmp").setup()
+	  end
+	}
 	use 'jupyter-vim/jupyter-vim'
 	use 'goerz/jupytext.vim'
 	use {
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
-		"neovim/nvim-lspconfig",
 	}
 	--	use {'Vigemus/iron.nvim'}
+	use 'h-hg/fcitx.nvim'
+
+	use {
+		'CopilotC-Nvim/CopilotChat.nvim',
+		requires = {
+			{'zbirenbaum/copilot.lua'},
+			{'nvim-lua/plenary.nvim'},
+		},
+		config = function()
+			require('CopilotChat').setup()
+		end
+	}
 end)

@@ -58,6 +58,7 @@ return require('packer').startup(function(use)
 	}
 	use 'dkarter/bullets.vim'
 	use 'jiangmiao/auto-pairs'
+	use 'Darazaki/indent-o-matic'
 
 	-- Clipboard
     use {

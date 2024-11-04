@@ -7,14 +7,14 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+      /etc/nixos/hardware-configuration.nix
     ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nix-desktop"; # Define your hostname.
+  # networking.hostName = "nix-desktop"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -49,21 +49,21 @@
   # Enable the GNOME Desktop Environment.
   # services.xserver.displayManager.gdm.enable = true;
   # services.xserver.desktopManager.gnome.enable = true;
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma6.enable = true;
+  services.displayManager.sddm.enable = true;
+  services.desktopManager.plasma6.enable = true;
   # services.xserver.desktopManager.plasma5.enable = true;
 
   # Configure keymap in X11
-  services.xserver = {
-    layout = "us";
-    xkbVariant = ",dvp";
-  };
+  # services.xserver.xkb = {
+  #   layout = "us";
+  #   Variant = ",dvp";
+  # };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  sound.enable = true;
+  # sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -86,9 +86,8 @@
   users.users.uzen = {
     isNormalUser = true;
     description = "uzen";
-    extraGroups = [ "networkmanager" "wheel" "docker" "adbusers"];
+    extraGroups = [ "networkmanager" "wheel" "docker" "adbusers" "cdrom"];
     packages = with pkgs; [
-      firefox
       neovim
       steam
       signal-desktop
@@ -106,13 +105,16 @@
       appimage-run
       feishin
       # libsForQt5.bismuth
-      libsForQt5.polonium
+      # libsForQt5.polonium
       pkgs.jetbrains-toolbox
       corectrl
       mpv
       vlc
       helvum
       steam-run # cursed
+      libreoffice
+      trash-cli
+      moonlight-qt
     ];
   };
 
@@ -122,6 +124,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    firefox
     python3
     vim
     git
@@ -130,13 +133,13 @@
     btop
     gcc
     fish
+    tmux
     gnumake
     zip
     unzip
     xclip
     wl-clipboard
     nodejs
-    kdeconnect
     # for neovim lsps
     clang-tools
     typst-lsp
@@ -152,6 +155,8 @@
     fwupd
     linuxKernel.packages.linux_6_6.xpadneo
     sunshine
+    # floorp
+    qemu
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -189,7 +194,7 @@
   # Fonts
   fonts.packages = with pkgs; [
     noto-fonts
-    noto-fonts-cjk
+    noto-fonts-cjk-sans
     noto-fonts-emoji
     liberation_ttf
     fira-code
@@ -202,11 +207,12 @@
     remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
   };
-  hardware.opengl.driSupport32Bit = true;
+  hardware.graphics.enable32Bit = true;
 
   # Fcitx5
   i18n.inputMethod = {
-    enabled = "fcitx5";
+    # enabled = "fcitx5";
+    enable = "fcitx5";
     fcitx5.addons = with pkgs; [
       fcitx5-mozc
       fcitx5-gtk
@@ -227,7 +233,6 @@
   # };
 
   services.flatpak.enable = false;
-  programs.kdeconnect.enable = true;
 
   # for feishin
   nixpkgs.config.permittedInsecurePackages = [
@@ -254,7 +259,7 @@
   # avahi
   services.avahi = {
   enable = true;
-  nssmdns = true;  # printing
+  nssmdns4 = true;  # printing
   publish = {
     enable = true;
     addresses = true;
@@ -279,7 +284,7 @@
   programs.nix-ld.enable = true;
 
   # for simula?
-  nix.trustedUsers = ["root" "uzen"];
+  # nix.settings.trustedUsers = ["root" "uzen"];
   
   # sunshine
   security.wrappers.sunshine = {
@@ -288,4 +293,8 @@
         capabilities = "cap_sys_admin+p";
         source = "${pkgs.sunshine}/bin/sunshine";
  };
+
+  # Vbox
+  virtualisation.virtualbox.host.enable = true;
+  users.extraGroups.vboxusers.members = [ "uzen" ];
 }

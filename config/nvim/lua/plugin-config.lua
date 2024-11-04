@@ -136,7 +136,7 @@ require("mason-lspconfig").setup_handlers {
 
 
 local lspconfig = require('lspconfig')
-local servers = { 'pyright' , 'jdtls', 'texlab', 'gopls'}
+local servers = { 'pyright' , 'jdtls', 'texlab', 'gopls', 'ts_ls'}
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup {
 		on_attach = on_attach,

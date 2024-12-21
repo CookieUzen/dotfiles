@@ -100,13 +100,11 @@
       carla
       calf
       ardour
-      ripgrep
-      valgrind
       appimage-run
       feishin
       # libsForQt5.bismuth
       # libsForQt5.polonium
-      pkgs.jetbrains-toolbox
+      # pkgs.jetbrains-toolbox
       corectrl
       mpv
       vlc
@@ -115,6 +113,9 @@
       libreoffice
       trash-cli
       moonlight-qt
+      fprintd
+      bitwarden-desktop
+      floorp
     ];
   };
 
@@ -142,8 +143,10 @@
     nodejs
     # for neovim lsps
     clang-tools
-    typst-lsp
+    # typst-lsp
+    tinymist
     pyright
+    universal-ctags
     # jdt-language-server
     # texlab
     gopls
@@ -157,6 +160,12 @@
     sunshine
     # floorp
     qemu
+    acpi
+    htop
+    killall
+    unar
+    # fuse
+    fuse3
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -199,6 +208,8 @@
     liberation_ttf
     fira-code
     fira-code-symbols
+    oxygenfonts
+    ibm-plex
   ];
 
   # Steam settings
@@ -211,8 +222,8 @@
 
   # Fcitx5
   i18n.inputMethod = {
-    # enabled = "fcitx5";
-    enable = "fcitx5";
+    type = "fcitx5";
+    enable = true;
     fcitx5.addons = with pkgs; [
       fcitx5-mozc
       fcitx5-gtk
@@ -220,6 +231,7 @@
       rime-data
     ];
   };
+
   # services.xserver.desktopManager.runXdgAutostartIfNone = true;
 
   # IBus
@@ -297,4 +309,7 @@
   # Vbox
   virtualisation.virtualbox.host.enable = true;
   users.extraGroups.vboxusers.members = [ "uzen" ];
+
+  # Fingerprint
+  services.fprintd.enable = true;
 }

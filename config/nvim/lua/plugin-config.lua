@@ -136,7 +136,7 @@ require("mason-lspconfig").setup_handlers {
 
 
 local lspconfig = require('lspconfig')
-local servers = { 'pyright' , 'jdtls', 'texlab', 'gopls', 'ts_ls'}
+local servers = { 'pyright' , 'jdtls', 'texlab', 'gopls'}
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup {
 		on_attach = on_attach,
@@ -144,12 +144,12 @@ for _, lsp in ipairs(servers) do
 	}
 end
 
-require'lspconfig'.typst_lsp.setup{
-	settings = {
-		exportPdf = "onType" -- Choose onType, onSave or never.
-        -- serverPath = "" -- Normally, there is no need to uncomment it.
-	}
-}
+-- require'lspconfig'.typst_lsp.setup{
+-- 	settings = {
+-- 		exportPdf = "onType" -- Choose onType, onSave or never.
+--         -- serverPath = "" -- Normally, there is no need to uncomment it.
+-- 	}
+-- }
 
 lspconfig['clangd'].setup{
 	cmd = {

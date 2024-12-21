@@ -43,6 +43,7 @@ return require('packer').startup(function(use)
     }
 	-- use 'wellle/context.vim'
 	use 'nvim-treesitter/nvim-treesitter-context'
+	use 'nvim-tree/nvim-web-devicons'
 	
 	-- Editing
 	use 'godlygeek/tabular'
@@ -52,6 +53,7 @@ return require('packer').startup(function(use)
 	use 'tpope/vim-repeat'
 	use 'airblade/vim-gitgutter'
 	use 'tpope/vim-fugitive'
+	use 'sindrets/diffview.nvim'
 	use {
 		'SirVer/ultisnips',
 		requires = {{'honza/vim-snippets'}, {'quangnguyen30192/cmp-nvim-ultisnips'}}
@@ -77,7 +79,7 @@ return require('packer').startup(function(use)
 	use {'kaarmu/typst.vim', ft = {'typst'}}
 
 	-- Buffers
-	use 'majutsushi/tagbar'
+	use 'liuchengxu/vista.vim'
 	use 'unblevable/quick-scope'
 	use 'mhinz/vim-startify'
 	use 'scrooloose/nerdtree'
